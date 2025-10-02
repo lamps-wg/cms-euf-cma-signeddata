@@ -141,6 +141,7 @@ However, a malicious party could intentionally present messages for signing that
 This mitigation is performed by a sender who signs data received from a 3rd party (potentially an attacker).
 
 If the sender will be using the id-data content type and will not be setting the signedAttrs field, check that the 3rd party content is not a DER-encoded SignedAttributes structure, and fail if it is.
+Note that also in this case, a malicious party could intentionally present messages that trigger this countermeasure and thereby trigger hard-to-trace errors during the signing process.
 
 
 # Security Considerations
