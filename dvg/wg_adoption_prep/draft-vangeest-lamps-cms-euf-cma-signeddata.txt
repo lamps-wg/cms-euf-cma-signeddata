@@ -5,8 +5,8 @@
 Limited Additional Mechanisms for PKIX and SMIME            D. Van Geest
 Internet-Draft                                       CryptoNext Security
 Intended status: Best Current Practice                       F. Strenzke
-Expires: 23 March 2026                                            MTG AG
-                                                       19 September 2025
+Expires: 5 April 2026                                             MTG AG
+                                                          2 October 2025
 
 
   Best Practices for CMS SignedData with Regards to Signed Attributes
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 March 2026.
+   This Internet-Draft will expire on 5 April 2026.
 
 Copyright Notice
 
@@ -227,9 +227,10 @@ Table of Contents
    message which just happens to look like a DER-encoded
    SignedAttributes struture being flagged.
 
-      |  NOTE: If an application protocol deliberately sends messages
-      |  which look like a DER-encoded SignedAttributes structure,
-      |  processing would fail.
+      |  However, a malicious party could intentionally present messages
+      |  for signing that are detected by the countermeasure and thus
+      |  introduce errors into the application processing that might be
+      |  hard to trace for a non-expert.
 
 4.2.  Sender Detection
 
