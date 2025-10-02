@@ -133,7 +133,7 @@ If the EncapsulatedContentInfo content type is id-data and signedAttrs is not pr
 The mandatory contentType and messageDigest attributes, with their respective OIDs, should give a low probability of a legitimate message which just happens to look like a DER-encoded SignedAttributes struture being flagged.
 
 <aside markdown="block">
-NOTE: If an application protocol deliberately sends messages which look like a DER-encoded SignedAttributes structure, processing would fail.
+However, a malicious party could intentionally present messages for signing that are detected by the countermeasure and thus introduce errors into the application processing that might be hard to trace for a non-expert.
 </aside>
 
 ## Sender Detection {#sender-detection}
