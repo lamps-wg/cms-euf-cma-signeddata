@@ -91,7 +91,7 @@ This vulnerability was presented by Falko Strenzke to the LAMPS working group at
 
 > signedAttrs is a collection of attributes that are signed.  The field is optional, but it MUST be present if the content type of the EncapsulatedContentInfo value being signed is not id-data.
 
-Thus, if the content type of the EncapsulatedContentInfo value within a SignedData value is id-data, then a SignerInfo within the SignedData may or may not contain a signedAttrs field and will be vulnerable to this attack.  On the other hand, if the content type is not id-data, the sender always adds the signedAttrs field, and the recipient verifies that signedAttrs is present, the attack will not succeed.
+Thus, if a verifier accepts a content type of id-data in the EncapsulatedContentInfo type when used in SignedData, then a SignerInfo within the SignedData may or may not contain a signedAttrs field and will be vulnerable to this attack.  On the other hand, if the verifier doesn't accept a content type of id-data, or if the content type is not id-data, the sender always adds the signedAttrs field, and the recipient verifies that signedAttrs is present, the attack will not succeed.
 
 Due to the limited flexibility of either the signed or the forged message in either attack variant, the fraction of vulnerable systems can be assumed to be small. But due to the wide deployment of the affected protocols, such instances cannot be excluded.
 
@@ -130,7 +130,7 @@ If the id-data EncapsulatedContentInfo content type continues to be used, the fo
 This mitigation is performed by a recipient when processing SignedData.
 
 If the EncapsulatedContentInfo content type is id-data and signedAttrs is not present, check if the encapsulated or detached content is a valid DER-encoded SignedAttributes structure and fail if it is.
-The mandatory contentType and messageDigest attributes, with their respective OIDs, should give a low probability of a legitimate message which just happens to look like a DER-encoded SignedAttributes struture being flagged.
+The mandatory contentType and messageDigest attributes, with their respective OIDs, should give a low probability of a legitimate message which just happens to look like a DER-encoded SignedAttributes structure being flagged.
 
 <aside markdown="block">
 However, a malicious party could intentionally present messages for signing that are detected by the countermeasure and thus introduce errors into the application processing that might be hard to trace for a non-expert.
