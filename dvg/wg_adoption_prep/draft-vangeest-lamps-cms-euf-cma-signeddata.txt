@@ -206,7 +206,7 @@ Table of Contents
    EncapsulatedContentInfo content type is not id-data, it SHOULD verify
    both that the correct content type was received and that the
    SignedData contains the signedAttrs field and fail processing if
-   either of these conditions are not met.  [WG: MUST or SHOULD?]
+   either of these conditions is not met.  [WG: MUST or SHOULD?]
 
 4.  Mitigations
 
