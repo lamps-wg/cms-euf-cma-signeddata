@@ -1306,7 +1306,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-dont-use-id-data">
 <a href="#section-3.1" class="section-number selfRef">3.1. </a><a href="#name-dont-use-id-data" class="section-name selfRef">Don't use id-data</a>
         </h3>
-<p id="section-3.1-1">New uses of the CMS SignedData type <span class="bcp14">MUST NOT</span> use the id-data EncapsulatedContentInfo content type.
+<p id="section-3.1-1">New uses of the CMS SignedData type <span class="bcp14">MUST</span> disallow the id-data EncapsulatedContentInfo content type.
 [WG: <span class="bcp14">MUST NOT</span> or <span class="bcp14">SHOULD NOT</span>?]<a href="#section-3.1-1" class="pilcrow">¶</a></p>
 <p id="section-3.1-2">When a protocol which already uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it <span class="bcp14">SHOULD</span> deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries".
 [WG: overreach or not?]<a href="#section-3.1-2" class="pilcrow">¶</a></p>

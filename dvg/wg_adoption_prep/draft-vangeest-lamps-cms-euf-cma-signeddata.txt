@@ -177,7 +177,7 @@ Table of Contents
 
 3.1.  Don't use id-data
 
-   New uses of the CMS SignedData type MUST NOT use the id-data
+   New uses of the CMS SignedData type MUST disallow the id-data
    EncapsulatedContentInfo content type.  [WG: MUST NOT or SHOULD NOT?]
 
    When a protocol which already uses the id-data
