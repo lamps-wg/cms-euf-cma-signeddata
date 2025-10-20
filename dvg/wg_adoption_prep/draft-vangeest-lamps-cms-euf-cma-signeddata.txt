@@ -5,8 +5,8 @@
 Limited Additional Mechanisms for PKIX and SMIME            D. Van Geest
 Internet-Draft                                       CryptoNext Security
 Intended status: Best Current Practice                       F. Strenzke
-Expires: 5 April 2026                                             MTG AG
-                                                          2 October 2025
+Expires: 23 April 2026                                            MTG AG
+                                                         20 October 2025
 
 
   Best Practices for CMS SignedData with Regards to Signed Attributes
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 5 April 2026.
+   This Internet-Draft will expire on 23 April 2026.
 
 Copyright Notice
 
@@ -153,10 +153,9 @@ Table of Contents
    EncapsulatedContentInfo type when used in SignedData, then a
    SignerInfo within the SignedData may or may not contain a signedAttrs
    field and will be vulnerable to this attack.  On the other hand, if
-   the verifier doesn't accept a content type of id-data, or if the
-   content type is not id-data, the sender always adds the signedAttrs
-   field, and the recipient verifies that signedAttrs is present, the
-   attack will not succeed.
+   the verifier doesn't accept a content type of id-data, the sender
+   always adds the signedAttrs field, and the recipient verifies that
+   signedAttrs is present, the attack will not succeed.
 
    Due to the limited flexibility of either the signed or the forged
    message in either attack variant, the fraction of vulnerable systems
