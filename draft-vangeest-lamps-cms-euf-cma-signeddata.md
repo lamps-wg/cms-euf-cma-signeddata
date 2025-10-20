@@ -118,7 +118,7 @@ When a protocol which already uses the id-data EncapsulatedContentInfo content t
 When a recipient receives a CMS SignedData, it SHOULD check that the EncapsulatedContentInfo content type value is one expected by the protocol and fail processing if it isn't.
 [WG: MUST or SHOULD?]
 
-When a recipient receives a CMS SignedData where the EncapsulatedContentInfo content type is not id-data, it SHOULD verify both that the correct content type was received and that the SignedData contains the signedAttrs field and fail processing if either of these conditions are not met.
+When a recipient receives a CMS SignedData where the EncapsulatedContentInfo content type is not id-data, it SHOULD verify both that the correct content type was received and that the SignedData contains the signedAttrs field and fail processing if either of these conditions is not met.
 [WG: MUST or SHOULD?]
 
 # Mitigations
