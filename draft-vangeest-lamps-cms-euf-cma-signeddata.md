@@ -105,7 +105,7 @@ This section describes the best practices to avoid the vulnerability at the time
 
 ## Don't use id-data
 
-New uses of the CMS SignedData type MUST NOT use the id-data EncapsulatedContentInfo content type.
+New uses of the CMS SignedData type MUST disallow the id-data EncapsulatedContentInfo content type.
 [WG: MUST NOT or SHOULD NOT?]
 
 When a protocol which already uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it SHOULD deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries".
