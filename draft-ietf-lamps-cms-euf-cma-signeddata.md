@@ -3,7 +3,7 @@ title: "Best Practices for CMS SignedData with Regards to Signed Attributes"
 abbrev: "BCP for CMS SignedData signedAttrs"
 category: bcp
 
-docname: draft-vangeest-lamps-cms-euf-cma-signeddata-latest
+docname: draft-ietf-lamps-cms-euf-cma-signeddata-latest
 submissiontype: IETF  # also: "independent", "editorial", "IAB", or "IRTF"
 number:
 date:
