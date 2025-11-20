@@ -1,5 +1,3 @@
-This repository has been moved to https://github.com/lamps-wg/cms-euf-cma-signeddata
-
 # EUF-CMA for the Cryptographic Message Syntax (CMS) SignedData
 
 This is the working area for the individual Internet-Draft, "EUF-CMA for the Cryptographic Message Syntax (CMS) SignedData".
