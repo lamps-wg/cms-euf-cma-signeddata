@@ -9,8 +9,8 @@ number:
 date:
 consensus: true
 v: 3
-area: "Security"
-workgroup: "Limited Additional Mechanisms for PKIX and SMIME"
+# area: "Security"
+# workgroup: "Limited Additional Mechanisms for PKIX and SMIME"
 keyword:
  - Cryptographic Message Syntax
  - CMS
@@ -18,12 +18,12 @@ keyword:
  - signedAttrs
  - SignedData
 venue:
-  group: "Limited Additional Mechanisms for PKIX and SMIME"
-  type: "Working Group"
-  mail: "spasm@ietf.org"
-  arch: "https://mailarchive.ietf.org/arch/browse/spasm/"
-  github: "danvangeest/cms-euf-cma-signeddata"
-  latest: "https://danvangeest.github.io/cms-euf-cma-signeddata/draft-vangeest-lamps-cms-euf-cma-signeddata.html"
+#  group: "Limited Additional Mechanisms for PKIX and SMIME"
+#  type: "Working Group"
+#  mail: "spasm@ietf.org"
+#  arch: "https://mailarchive.ietf.org/arch/browse/spasm/"
+  github: "lamps-wg/cms-euf-cma-signeddata"
+  latest: "https://lamps-wg.github.io/cms-euf-cma-signeddata/draft-ietf-lamps-cms-euf-cma-signeddata.html"
 
 author:
   -
