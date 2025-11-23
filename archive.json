@@ -1,7 +1,7 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2025-03-30T01:38:12.093641+00:00",
-  "repo": "danvangeest/cms-euf-cma-signeddata",
+  "timestamp": "2025-11-23T01:39:59.152276+00:00",
+  "repo": "lamps-wg/cms-euf-cma-signeddata",
   "labels": [
     {
       "name": "bug",
@@ -54,10 +54,10 @@
       "number": 3,
       "id": "I_kwDONVsH1s6k9lEq",
       "title": "Clarify introduction bullet 1",
-      "url": "https://github.com/danvangeest/cms-euf-cma-signeddata/issues/3",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/issues/3",
       "state": "CLOSED",
       "author": "danvangeest",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "From Carl Wallace's comment: https://mailarchive.ietf.org/arch/msg/spasm/hiSdxAHAfj0nmBqZhO8NlQJMDUQ/\r\n\r\nIn the introduction, bullet 1 is incomplete. Simply removing SignedAttributes does nothing of value for an attacker. It should probably say something like: \"Take an arbitrary CMS signed message M which was originally signed with SignedAttributes present and rearrange the structure such that the SignedAttributes field is absent and the original DER-encoded SignedAttributes appears as an encapsulated or detached content of type id-data, thereby crafting a new structure M' that was never explicitly signed by the signer.\"",
@@ -70,10 +70,10 @@
       "number": 4,
       "id": "I_kwDONVsH1s6k9o0P",
       "title": "Caution against using id-data for new protocols",
-      "url": "https://github.com/danvangeest/cms-euf-cma-signeddata/issues/4",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/issues/4",
       "state": "CLOSED",
       "author": "danvangeest",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "From Carl Wallace's comment: https://mailarchive.ietf.org/arch/msg/spasm/hiSdxAHAfj0nmBqZhO8NlQJMDUQ/\r\n\r\n4.2 might include a note cautioning against use of id-data for new protocols. A draft that prohibits any new use of id-data in protocols may be worthwhile a well.",
@@ -86,16 +86,32 @@
       "number": 5,
       "id": "I_kwDONVsH1s6k9v9s",
       "title": "Mention id-data in Security Considerations",
-      "url": "https://github.com/danvangeest/cms-euf-cma-signeddata/issues/5",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/issues/5",
       "state": "CLOSED",
       "author": "danvangeest",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "From Carl Wallace's comment: https://mailarchive.ietf.org/arch/msg/spasm/hiSdxAHAfj0nmBqZhO8NlQJMDUQ/\r\n\r\nThe first security consideration may benefit from noting any protocol that does not use id-data requires SignedAttributes and thus provides a defense against this vulnerability. https://www.iana.org/assignments/media-types/application/cms has a partial list of such protocols.",
       "createdAt": "2025-01-03T14:19:01Z",
       "updatedAt": "2025-03-18T08:35:01Z",
       "closedAt": "2025-03-18T08:35:01Z",
+      "comments": []
+    },
+    {
+      "number": 9,
+      "id": "I_kwDONVsH1s7VB1b7",
+      "title": "Russ' comments about section 3.1",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/issues/9",
+      "state": "OPEN",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Address Russ' concernsa about section 3.1 from this thread: https://mailarchive.ietf.org/arch/msg/spasm/_WuvskYCzSlRwVYqB-nVKKYeTTQ/\n",
+      "createdAt": "2025-10-31T09:11:06Z",
+      "updatedAt": "2025-11-20T11:08:55Z",
+      "closedAt": null,
       "comments": []
     }
   ],
@@ -104,7 +120,7 @@
       "number": 1,
       "id": "PR_kwDONVsH1s6ELjPw",
       "title": "Detailed attack description; further proposed changes",
-      "url": "https://github.com/danvangeest/cms-euf-cma-signeddata/pull/1",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/pull/1",
       "state": "MERGED",
       "author": "falko-strenzke",
       "authorAssociation": "COLLABORATOR",
@@ -113,10 +129,10 @@
       "body": "",
       "createdAt": "2024-12-05T13:00:26Z",
       "updatedAt": "2024-12-05T15:16:36Z",
-      "baseRepository": "danvangeest/cms-euf-cma-signeddata",
+      "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
       "baseRefName": "main",
       "baseRefOid": "ad2d2f5e767e7adb383005cbb6b5902a3e2d1ea3",
-      "headRepository": "danvangeest/cms-euf-cma-signeddata",
+      "headRepository": "lamps-wg/cms-euf-cma-signeddata",
       "headRefName": "suggestion-falko-2024-12-05",
       "headRefOid": "aabb2162c490feb4bdfa9869fea75c028519947b",
       "closedAt": "2024-12-05T15:16:24Z",
@@ -133,7 +149,7 @@
             "abbreviatedOid": "aabb216"
           },
           "author": "danvangeest",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "APPROVED",
           "body": "",
           "createdAt": "2024-12-05T15:16:00Z",
@@ -146,19 +162,19 @@
       "number": 2,
       "id": "PR_kwDONVsH1s6EM3HW",
       "title": "Falko's comments",
-      "url": "https://github.com/danvangeest/cms-euf-cma-signeddata/pull/2",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/pull/2",
       "state": "MERGED",
       "author": "danvangeest",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2024-12-05T15:36:01Z",
       "updatedAt": "2024-12-05T15:47:54Z",
-      "baseRepository": "danvangeest/cms-euf-cma-signeddata",
+      "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
       "baseRefName": "main",
       "baseRefOid": "1b82bad118c97e296fba31b1534cc49fd9e73782",
-      "headRepository": "danvangeest/cms-euf-cma-signeddata",
+      "headRepository": "lamps-wg/cms-euf-cma-signeddata",
       "headRefName": "dvg/falkos_comments",
       "headRefOid": "c596fd51d6e430880bd1234cd7f311427fc48a98",
       "closedAt": "2024-12-05T15:41:05Z",
@@ -188,19 +204,19 @@
       "number": 6,
       "id": "PR_kwDONVsH1s6HWFcT",
       "title": "Add a section briefly exploring RFCs using the id-data eContentType",
-      "url": "https://github.com/danvangeest/cms-euf-cma-signeddata/pull/6",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/pull/6",
       "state": "MERGED",
       "author": "danvangeest",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2025-01-10T15:22:11Z",
       "updatedAt": "2025-02-14T13:33:54Z",
-      "baseRepository": "danvangeest/cms-euf-cma-signeddata",
+      "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
       "baseRefName": "main",
       "baseRefOid": "30e36657edaf7d74aff595077eeebe8a2da8b0de",
-      "headRepository": "danvangeest/cms-euf-cma-signeddata",
+      "headRepository": "lamps-wg/cms-euf-cma-signeddata",
       "headRefName": "dvg/id_data_rfcs",
       "headRefOid": "b08a9260b074c5a92b1095b351cb93447fd808f0",
       "closedAt": "2025-02-14T13:33:54Z",
@@ -278,7 +294,7 @@
             "abbreviatedOid": "3daf42c"
           },
           "author": "danvangeest",
-          "authorAssociation": "OWNER",
+          "authorAssociation": "COLLABORATOR",
           "state": "COMMENTED",
           "body": "",
           "createdAt": "2025-01-29T14:45:16Z",
@@ -318,19 +334,19 @@
       "number": 7,
       "id": "PR_kwDONVsH1s6O8l__",
       "title": "Address Carl Wallace's comments",
-      "url": "https://github.com/danvangeest/cms-euf-cma-signeddata/pull/7",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/pull/7",
       "state": "MERGED",
       "author": "danvangeest",
-      "authorAssociation": "OWNER",
+      "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "Closes #3, #4, #5",
       "createdAt": "2025-03-17T15:15:36Z",
       "updatedAt": "2025-03-18T08:34:34Z",
-      "baseRepository": "danvangeest/cms-euf-cma-signeddata",
+      "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
       "baseRefName": "main",
       "baseRefOid": "6161f5b960c708474f15a60ab3c9205f85af8bce",
-      "headRepository": "danvangeest/cms-euf-cma-signeddata",
+      "headRepository": "lamps-wg/cms-euf-cma-signeddata",
       "headRefName": "dvg/carls_comments",
       "headRefOid": "73a5cf9ad40d123ee42c69afbaef55c556cca727",
       "closedAt": "2025-03-18T08:34:33Z",
@@ -341,6 +357,131 @@
       },
       "comments": [],
       "reviews": []
+    },
+    {
+      "number": 8,
+      "id": "PR_kwDONVsH1s6pcrAx",
+      "title": "Update based on our discussion at IETF 123",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/pull/8",
+      "state": "MERGED",
+      "author": "danvangeest",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2025-09-19T07:43:04Z",
+      "updatedAt": "2025-10-20T08:51:01Z",
+      "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
+      "baseRefName": "main",
+      "baseRefOid": "e40deb26a4904d705540452b06dd6e8b66b9da8e",
+      "headRepository": "lamps-wg/cms-euf-cma-signeddata",
+      "headRefName": "dvg/wg_adoption_prep",
+      "headRefOid": "b3e82e5ec7987f6985d890e07acfdc37ea7e7ff0",
+      "closedAt": "2025-10-20T08:51:01Z",
+      "mergedAt": "2025-10-20T08:51:01Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "801a08ec88c5ac9148abdd42345dd9fa6d8d29d4"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONVsH1s7DZJd6",
+          "commit": {
+            "abbreviatedOid": "cebb9c4"
+          },
+          "author": "falko-strenzke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Hi Daniel,\r\nthanks a lot for creating this PR, I think it is a valuable update. I have only a few minor suggestions.\r\n\r\nI didn't check the section on the affected protocols, however. I plan to do this for a future revision of the draft.",
+          "createdAt": "2025-09-29T06:48:07Z",
+          "updatedAt": "2025-09-29T10:54:24Z",
+          "comments": [
+            {
+              "originalPosition": 99,
+              "body": "I think we have to be careful here: eContentType is also not protected by the signature and thus potential subject to manipulation. So it seem that the attack can be applied whenever the verfier accepts eContentType=id-data. I think that should be stated clearer here. \r\n\r\nAs I saw, further down, you correctly mandate that the receiving application verifies the eContentType.",
+              "createdAt": "2025-09-29T06:48:07Z",
+              "updatedAt": "2025-09-29T07:09:27Z"
+            },
+            {
+              "originalPosition": 206,
+              "body": "```suggestion\r\nHowever, a malicious party could intentionally present messages for signing that are detected by the countermeasure and thus introduce errors into the application processing that might be hard to trace for a non-expert.\r\n```",
+              "createdAt": "2025-09-29T06:58:51Z",
+              "updatedAt": "2025-09-29T07:09:27Z"
+            },
+            {
+              "originalPosition": 216,
+              "body": "```suggestion\r\nIf the sender will be using the id-data content type and will not be setting the signedAttrs field, check that the 3rd party content is not a DER-encoded SignedAttributes structure, and fail if it is.\r\nNote that also in this case, a malicious party could intentionally present messages that trigger this countermeasure and thereby trigger hard-to-trace errors during the signing process.\r\n```",
+              "createdAt": "2025-09-29T07:01:18Z",
+              "updatedAt": "2025-09-29T07:09:27Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONVsH1s7BVaEA",
+          "commit": {
+            "abbreviatedOid": "eb4cdf0"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2025-09-19T07:44:11Z",
+          "updatedAt": "2025-10-02T08:47:11Z",
+          "comments": [
+            {
+              "originalPosition": 233,
+              "body": "The details below were copied directly from your paper.  Are they necessary/appropriate?  Is there anything you would have changed in them?",
+              "createdAt": "2025-09-19T07:44:11Z",
+              "updatedAt": "2025-10-02T08:47:11Z"
+            },
+            {
+              "originalPosition": 99,
+              "body": "updated this section to hopefully make this more clear.",
+              "createdAt": "2025-10-02T08:47:00Z",
+              "updatedAt": "2025-10-02T08:47:11Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONVsH1s7F-DFa",
+          "commit": {
+            "abbreviatedOid": "c06418d"
+          },
+          "author": "falko-strenzke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "Hi Daniel,\r\nthanks for working in my suggestions. I have only a few minor corrections and suggestions.",
+          "createdAt": "2025-10-10T05:17:25Z",
+          "updatedAt": "2025-10-10T05:30:01Z",
+          "comments": [
+            {
+              "originalPosition": 99,
+              "body": "```suggestion\r\nThus, if a verifier accepts a content type of id-data in the EncapsulatedContentInfo type when used in SignedData, then a SignerInfo within the SignedData may or may not contain a signedAttrs field and will be vulnerable to this attack.  On the other hand, if the verifier doesn't accept a content type of id-data, the sender always adds the signedAttrs field, and the recipient verifies that signedAttrs is present, the attack will not succeed.\r\n```\r\n\r\nI deleted \"or if the content type is not id-data\" because I don't see that it implies a significant meaning. If the content of the message simply happens to not be id-data, but the protocol would allow it, the attacker can simply change it to id-data.",
+              "createdAt": "2025-10-10T05:17:25Z",
+              "updatedAt": "2025-10-10T05:30:01Z"
+            },
+            {
+              "originalPosition": 152,
+              "body": "```suggestion\r\nNew uses of the CMS SignedData type MUST disallow the id-data EncapsulatedContentInfo content type.\r\n```",
+              "createdAt": "2025-10-10T05:19:08Z",
+              "updatedAt": "2025-10-10T05:30:01Z"
+            },
+            {
+              "originalPosition": 177,
+              "body": "```suggestion\r\nWhen a recipient receives a CMS SignedData where the EncapsulatedContentInfo content type is not id-data, it SHOULD verify both that the correct content type was received and that the SignedData contains the signedAttrs field and fail processing if either of these conditions is not met.\r\n```",
+              "createdAt": "2025-10-10T05:20:34Z",
+              "updatedAt": "2025-10-10T05:30:01Z"
+            },
+            {
+              "originalPosition": 233,
+              "body": "I think they are OK. I read them again during the last review and didn't see the need for changes or additions. We can contemplate this still. But I generally think this section is of little relevance to the function of the draft.",
+              "createdAt": "2025-10-10T05:23:23Z",
+              "updatedAt": "2025-10-10T18:37:36Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
