@@ -5,8 +5,8 @@
 Limited Additional Mechanisms for PKIX and SMIME            D. Van Geest
 Internet-Draft                                       CryptoNext Security
 Intended status: Best Current Practice                       F. Strenzke
-Expires: 24 May 2026                                              MTG AG
-                                                        20 November 2025
+Expires: 26 July 2026                                             MTG AG
+                                                         22 January 2026
 
 
   Best Practices for CMS SignedData with Regards to Signed Attributes
@@ -55,11 +55,11 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 24 May 2026.
+   This Internet-Draft will expire on 26 July 2026.
 
 Copyright Notice
 
-   Copyright (c) 2025 IETF Trust and the persons identified as the
+   Copyright (c) 2026 IETF Trust and the persons identified as the
    document authors.  All rights reserved.
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -393,8 +393,8 @@ Table of Contents
               <https://www.rfc-editor.org/rfc/rfc8894>.
 
    [Str23]    Strenzke, F., "ForgedAttributes: An Existential Forgery
-              Vulnerability of CMS and PKCS#7 Signatures", 22 November
-              2023, <https://ia.cr/2023/1801>.
+              Vulnerability of CMS Signatures", 22 November 2023,
+              <https://eprint.iacr.org/2023/1801>.
 
 Appendix A.  RFCs Using the id-data EncapsulatedContentInfo Content Type
 
