@@ -47,8 +47,8 @@ informative:
         ins: F. Strenzke
     date: 2024-11-06
   Str23:
-    target: https://ia.cr/2023/1801
-    title: "ForgedAttributes: An Existential Forgery Vulnerability of CMS and PKCS#7 Signatures"
+    target: https://eprint.iacr.org/2023/1801
+    title: "ForgedAttributes: An Existential Forgery Vulnerability of CMS Signatures"
     author:
       -
         ins: F. Strenzke
