@@ -1,6 +1,6 @@
 ---
-title: "Best Practices for CMS SignedData with Regards to Signed Attributes"
-abbrev: "BCP for CMS SignedData signedAttrs"
+title: "Best Practices for Signed Attributes in CMS SignedData"
+abbrev: "BCP for signedAttrs in CMS SignedData"
 category: bcp
 
 docname: draft-ietf-lamps-cms-euf-cma-signeddata-latest
