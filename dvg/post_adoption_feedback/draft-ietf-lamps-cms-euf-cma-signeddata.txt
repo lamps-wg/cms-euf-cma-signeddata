@@ -9,7 +9,7 @@ Expires: 27 July 2026                                             MTG AG
                                                          23 January 2026
 
 
-  Best Practices for CMS SignedData with Regards to Signed Attributes
+         Best Practices for Signed Attributes in CMS SignedData
              draft-ietf-lamps-cms-euf-cma-signeddata-latest
 
 Abstract
