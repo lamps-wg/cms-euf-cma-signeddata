@@ -1055,7 +1055,7 @@ svg :is([fill="white"], [fill^="#fff"]) {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Van Geest &amp; Strenzke</td>
-<td class="center">Expires 27 July 2026</td>
+<td class="center">Expires 30 July 2026</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1068,12 +1068,12 @@ svg :is([fill="white"], [fill^="#fff"]) {
 <dd class="internet-draft">draft-ietf-lamps-cms-euf-cma-signeddata-latest</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-01-23" class="published">23 January 2026</time>
+<time datetime="2026-01-26" class="published">26 January 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Best Current Practice</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2026-07-27">27 July 2026</time></dd>
+<dd class="expires"><time datetime="2026-07-30">30 July 2026</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1129,7 +1129,7 @@ This document describes the vulnerability and lists best practices and mitigatio
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 27 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 30 July 2026.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1289,7 +1289,7 @@ The signature created by the signer is valid for this arbitrary attacker-chosen 
       </ul>
 <p id="section-1-9">Thus, if a verifier accepts a content type of id-data in the EncapsulatedContentInfo type when used in SignedData, then a SignerInfo within the SignedData may or may not contain a signedAttrs field and will be vulnerable to this attack.  On the other hand, if the verifier doesn't accept a content type of id-data, the sender always adds the signedAttrs field, and the recipient verifies that signedAttrs is present, the attack will not succeed.<a href="#section-1-9" class="pilcrow">¶</a></p>
 <p id="section-1-10">The limited flexibility of either the signed or the forged message in either attack variant may mean the attacks are only narrowly applicable. Nevertheless, due to the wide deployment of the affected protocols and the use of CMS in many proprietary systems, the attacks cannot be entirely disregarded.<a href="#section-1-10" class="pilcrow">¶</a></p>
-<p id="section-1-11">This document defines the new mimeData content type to be used in new uses of the CMS SignedData type when the encapsulated content is MIME encoded.
+<p id="section-1-11">As a mitigation, this document defines the new mimeData content type to be used in new uses of the CMS SignedData type when the encapsulated content is MIME encoded and thus avoid the use of the id-data content type.
 This document also describes best practices for the CMS SignedData type.<a href="#section-1-11" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1332,7 +1332,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-existing-uses-of-id-data">
 <a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-existing-uses-of-id-data" class="section-name selfRef">Existing Uses of id-data</a>
         </h3>
-<p id="section-4.1-1">When a protocol which uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it <span class="bcp14">SHOULD</span> deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries". If the existing content is MIME encoded, the mimeData content type <span class="bcp14">SHOULD</span> be used. Updated protocols that do not deprecate the use of id-data <span class="bcp14">SHOULD</span> provide a rationale for not doing so.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">When a protocol which uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it <span class="bcp14">SHOULD</span> deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries". If the existing content is MIME encoded, the mimeData content type <span class="bcp14">SHOULD</span> be used. Updated protocols that do not deprecate the use of id-data <span class="bcp14">SHOULD</span> provide a rationale for not doing so. Note that accepting the content type id-data during verification is sufficient for a vulnerability to surface. Hence the measures described in <a href="#recipient-verification" class="auto internal xref">Section 4.2</a> must be adhered to.<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.1-2">When a protocol uses the id-data EncapsulatedContentInfo content type within SignedData, it <span class="bcp14">SHOULD</span> specify that the signedAttrs field is either always required or always forbidden.  If a protocol makes such a requirement, a recipient <span class="bcp14">MUST</span> check whether the signedAttrs field is present or absent as specified by the protocol, and fail processing if the appropriate condition is not met.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1341,7 +1341,7 @@ appear in all capitals, as shown here.<a href="#section-2-1" class="pilcrow">¶<
         <h3 id="name-recipient-verification">
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-recipient-verification" class="section-name selfRef">Recipient Verification</a>
         </h3>
-<p id="section-4.2-1">When a recipient receives a CMS SignedData, it <span class="bcp14">SHOULD</span> check that the EncapsulatedContentInfo content type value is one expected by the protocol and fail processing if it isn't.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+<p id="section-4.2-1">When a recipient receives a CMS SignedData, it <span class="bcp14">SHOULD</span> be checked that the EncapsulatedContentInfo content type value is the one expected by the protocol and fail processing if it is not.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">As specified in <span><a href="https://rfc-editor.org/rfc/rfc5652#section-5.3" class="relref">Section 5.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span>, a SignerInfo signedAttrs field <span class="bcp14">MUST</span> be present if the content type of the EncapsulatedContentInfo value being signed is not id-data.
 To avoid the attack described in <a href="#intro" class="auto internal xref">Section 1</a>, when a recipient receives a CMS SignedData and the EncapsulatedContentInfo content type is not id-data, it <span class="bcp14">SHOULD</span> verify both that the expected content type was received and that each SignerInfo contains the signedAttrs field, and fail processing if either of these conditions is not met.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 </section>
@@ -1353,7 +1353,8 @@ To avoid the attack described in <a href="#intro" class="auto internal xref">Sec
       <h2 id="name-mitigations">
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-mitigations" class="section-name selfRef">Mitigations</a>
       </h2>
-<p id="section-5-1">When the id-data EncapsulatedContentInfo content type is used, the following mitigations <span class="bcp14">MAY</span> be applied to protect against the vulnerability described in <a href="#intro" class="auto internal xref">Section 1</a>.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-1">This section describes mitigations for cases where the best practices given above cannot be applied.
+When the id-data EncapsulatedContentInfo content type is used, the following mitigations <span class="bcp14">MAY</span> be applied to protect against the vulnerability described in <a href="#intro" class="auto internal xref">Section 1</a>.<a href="#section-5-1" class="pilcrow">¶</a></p>
 <div id="recipient-detection">
 <section id="section-5.1">
         <h3 id="name-recipient-detection">
@@ -1384,7 +1385,7 @@ Note that also in this case, a malicious party could intentionally present messa
       <h2 id="name-security-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<p id="section-6-1">The vulnerability is not present in systems where the use of signedAttrs is mandatory, as long as recipients enforce the use of signedAttrs. Some examples where signedAttrs is mandatory are SCEP, Certificate Transparency, RFC 4018 firmware update, German Smart Metering CMS data format.
+<p id="section-6-1">The vulnerability is not present in systems where the use of signedAttrs is mandatory, as long as recipients enforce the use of signedAttrs. Some examples where the use of signedAttrs is mandatory are SCEP, Certificate Transparency, RFC 4018 firmware update, German Smart Metering CMS data format.
 Any protocol that uses an EncapsulatedContentInfo content type other than id-data is required to use signed attributes.
 However, this security relies on a correct implementation of the verification routine that ensures the correct content type and presence of signedAttrs.<a href="#section-6-1" class="pilcrow">¶</a></p>
 <p id="section-6-2">When the message is signed and then encrypted, the vulnerability could still be present if mitigations aren't applied:<a href="#section-6-2" class="pilcrow">¶</a></p>

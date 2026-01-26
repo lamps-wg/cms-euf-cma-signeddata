@@ -5,8 +5,8 @@
 Limited Additional Mechanisms for PKIX and SMIME            D. Van Geest
 Internet-Draft                                       CryptoNext Security
 Intended status: Best Current Practice                       F. Strenzke
-Expires: 27 July 2026                                             MTG AG
-                                                         23 January 2026
+Expires: 30 July 2026                                             MTG AG
+                                                         26 January 2026
 
 
          Best Practices for Signed Attributes in CMS SignedData
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 27 July 2026.
+   This Internet-Draft will expire on 30 July 2026.
 
 Copyright Notice
 
@@ -165,10 +165,11 @@ Table of Contents
    protocols and the use of CMS in many proprietary systems, the attacks
    cannot be entirely disregarded.
 
-   This document defines the new mimeData content type to be used in new
-   uses of the CMS SignedData type when the encapsulated content is MIME
-   encoded.  This document also describes best practices for the CMS
-   SignedData type.
+   As a mitigation, this document defines the new mimeData content type
+   to be used in new uses of the CMS SignedData type when the
+   encapsulated content is MIME encoded and thus avoid the use of the
+   id-data content type.  This document also describes best practices
+   for the CMS SignedData type.
 
 2.  Conventions and Definitions
 
@@ -208,7 +209,10 @@ Table of Contents
    Types" IANA subregistry within the "Media Type Sub-Parameter
    Registries".  If the existing content is MIME encoded, the mimeData
    content type SHOULD be used.  Updated protocols that do not deprecate
-   the use of id-data SHOULD provide a rationale for not doing so.
+   the use of id-data SHOULD provide a rationale for not doing so.  Note
+   that accepting the content type id-data during verification is
+   sufficient for a vulnerability to surface.  Hence the measures
+   described in Section 4.2 must be adhered to.
 
    When a protocol uses the id-data EncapsulatedContentInfo content type
    within SignedData, it SHOULD specify that the signedAttrs field is
@@ -219,9 +223,9 @@ Table of Contents
 
 4.2.  Recipient Verification
 
-   When a recipient receives a CMS SignedData, it SHOULD check that the
-   EncapsulatedContentInfo content type value is one expected by the
-   protocol and fail processing if it isn't.
+   When a recipient receives a CMS SignedData, it SHOULD be checked that
+   the EncapsulatedContentInfo content type value is the one expected by
+   the protocol and fail processing if it is not.
 
    As specified in Section 5.3 of [RFC5652], a SignerInfo signedAttrs
    field MUST be present if the content type of the
@@ -234,9 +238,11 @@ Table of Contents
 
 5.  Mitigations
 
-   When the id-data EncapsulatedContentInfo content type is used, the
-   following mitigations MAY be applied to protect against the
-   vulnerability described in Section 1.
+   This section describes mitigations for cases where the best practices
+   given above cannot be applied.  When the id-data
+   EncapsulatedContentInfo content type is used, the following
+   mitigations MAY be applied to protect against the vulnerability
+   described in Section 1.
 
 5.1.  Recipient Detection
 
@@ -271,9 +277,9 @@ Table of Contents
 
    The vulnerability is not present in systems where the use of
    signedAttrs is mandatory, as long as recipients enforce the use of
-   signedAttrs.  Some examples where signedAttrs is mandatory are SCEP,
-   Certificate Transparency, RFC 4018 firmware update, German Smart
-   Metering CMS data format.  Any protocol that uses an
+   signedAttrs.  Some examples where the use of signedAttrs is mandatory
+   are SCEP, Certificate Transparency, RFC 4018 firmware update, German
+   Smart Metering CMS data format.  Any protocol that uses an
    EncapsulatedContentInfo content type other than id-data is required
    to use signed attributes.  However, this security relies on a correct
    implementation of the verification routine that ensures the correct
