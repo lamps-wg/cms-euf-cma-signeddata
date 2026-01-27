@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-25T01:47:10.351581+00:00",
+  "timestamp": "2026-01-27T01:44:15.052073+00:00",
   "repo": "lamps-wg/cms-euf-cma-signeddata",
   "labels": [
     {
@@ -544,13 +544,13 @@
       "labels": [],
       "body": "\u2026 Preu\u00df Mattsson",
       "createdAt": "2026-01-23T15:37:41Z",
-      "updatedAt": "2026-01-23T15:42:25Z",
+      "updatedAt": "2026-01-26T15:52:16Z",
       "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
       "baseRefName": "main",
       "baseRefOid": "dab745488ec79b5f4eb65da1f7740b368491952b",
       "headRepository": "lamps-wg/cms-euf-cma-signeddata",
       "headRefName": "dvg/post_adoption_feedback",
-      "headRefOid": "cf29361d82ab16c272bad197008bb704053cfc47",
+      "headRefOid": "9708c0aea8973830bcaaafa0cb3bd368671cd384",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -564,7 +564,71 @@
           "updatedAt": "2026-01-23T15:40:30Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDONVsH1s7c1Gma",
+          "commit": {
+            "abbreviatedOid": "cf29361"
+          },
+          "author": "falko-strenzke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "Hi Daniel,\r\n\r\nthanks a lot for creating this PR. I have some minor comments",
+          "createdAt": "2026-01-26T07:41:38Z",
+          "updatedAt": "2026-01-26T08:14:24Z",
+          "comments": [
+            {
+              "originalPosition": 16,
+              "body": "I suggest to explicitly state that this new content type is meant to replace uses of id-data.\r\n```suggestion\r\nAs a mitigation, this document defines the new mimeData content type to be used in new uses of the CMS SignedData type when the encapsulated content is MIME encoded and thus avoid the use of the id-data content type.\r\n```\r\nI see that this explanation comes a bit furhter down, but I'd suggest to give it here already.",
+              "createdAt": "2026-01-26T07:41:38Z",
+              "updatedAt": "2026-01-26T08:14:24Z"
+            },
+            {
+              "originalPosition": 49,
+              "body": "```suggestion\r\nWhen a protocol which uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it SHOULD deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the \"CMS Inner Content Types\" IANA subregistry within the \"Media Type Sub-Parameter Registries\". If the existing content is MIME encoded, the mimeData content type SHOULD be used. Updated protocols that do not deprecate the use of id-data SHOULD provide a rationale for not doing so. Note that accepting the content type id-data during verification is sufficient for a vulnerability to surface. Hence the measures described in {{recipient-verification}} must be adhered to.\r\n```",
+              "createdAt": "2026-01-26T07:57:52Z",
+              "updatedAt": "2026-01-26T08:14:24Z"
+            },
+            {
+              "originalPosition": 56,
+              "body": "```suggestion\r\nWhen a recipient receives a CMS SignedData, it SHOULD be checked that the EncapsulatedContentInfo content type value is the one expected by the protocol and fail processing if it is not.\r\n```",
+              "createdAt": "2026-01-26T07:59:50Z",
+              "updatedAt": "2026-01-26T08:14:24Z"
+            },
+            {
+              "originalPosition": 54,
+              "body": "```suggestion\r\n## Recipient Verification {#recipient-verification}\r\n```",
+              "createdAt": "2026-01-26T08:06:25Z",
+              "updatedAt": "2026-01-26T08:14:24Z"
+            },
+            {
+              "originalPosition": 65,
+              "body": "```suggestion\r\nThis section describes mitigations for cases where the best practices given above cannot be applied.\r\n```",
+              "createdAt": "2026-01-26T08:08:46Z",
+              "updatedAt": "2026-01-26T08:14:24Z"
+            },
+            {
+              "originalPosition": 92,
+              "body": "```suggestion\r\nThe vulnerability is not present in systems where the use of signedAttrs is mandatory, as long as recipients enforce the use of signedAttrs. Some examples where the use of signedAttrs is mandatory are SCEP, Certificate Transparency, RFC 4018 firmware update, German Smart Metering CMS data format.\r\n```",
+              "createdAt": "2026-01-26T08:11:20Z",
+              "updatedAt": "2026-01-26T08:14:24Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONVsH1s7c7-N-",
+          "commit": {
+            "abbreviatedOid": "9708c0a"
+          },
+          "author": "falko-strenzke",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-01-26T15:52:16Z",
+          "updatedAt": "2026-01-26T15:52:16Z",
+          "comments": []
+        }
+      ]
     }
   ]
 }
