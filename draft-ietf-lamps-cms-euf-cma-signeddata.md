@@ -1,6 +1,6 @@
 ---
-title: "Best Practices for CMS SignedData with Regards to Signed Attributes"
-abbrev: "BCP for CMS SignedData signedAttrs"
+title: "Best Practices for Signed Attributes in CMS SignedData"
+abbrev: "BCP for signedAttrs in CMS SignedData"
 category: bcp
 
 docname: draft-ietf-lamps-cms-euf-cma-signeddata-latest
@@ -93,44 +93,57 @@ This vulnerability was presented by Falko Strenzke to the LAMPS working group at
 
 Thus, if a verifier accepts a content type of id-data in the EncapsulatedContentInfo type when used in SignedData, then a SignerInfo within the SignedData may or may not contain a signedAttrs field and will be vulnerable to this attack.  On the other hand, if the verifier doesn't accept a content type of id-data, the sender always adds the signedAttrs field, and the recipient verifies that signedAttrs is present, the attack will not succeed.
 
-Due to the limited flexibility of either the signed or the forged message in either attack variant, the fraction of vulnerable systems can be assumed to be small. But due to the wide deployment of the affected protocols, such instances cannot be excluded.
+The limited flexibility of either the signed or the forged message in either attack variant may mean the attacks are only narrowly applicable. Nevertheless, due to the wide deployment of the affected protocols and the use of CMS in many proprietary systems, the attacks cannot be entirely disregarded.
+
+As a mitigation, this document defines the new mimeData content type to be used in new uses of the CMS SignedData type when the encapsulated content is MIME encoded and thus avoid the use of the id-data content type.
+This document also describes best practices for the CMS SignedData type.
 
 # Conventions and Definitions
 
 {::boilerplate bcp14-tagged}
 
+# mimeData Content Type
+
+The following object identifier identifies the mimeData content type:
+
+~~~ asn.1
+  id-mime-data OBJECT IDENTIFIER ::= { iso(1) member-body(2)
+      us(840) rsadsi(113549) pkcs(1) pkcs9(9) smime(16) ct(1)
+      TBD2 }
+~~~
+
+The mimeData content type is intended as a replacement for the id-data content type in new uses of the CMS SignedData type where the content is MIME encoded.
+
+
 # Best Practices
 
 This section describes the best practices to avoid the vulnerability at the time of writing.
 
-## Don't use id-data
+New uses of the CMS SignedData MUST NOT use the id-data EncapsulatedContentInfo content type. If the new content is MIME encoded, the mimeData content type SHOULD be used.
 
-New uses of the CMS SignedData type MUST disallow the id-data EncapsulatedContentInfo content type.
-[WG: MUST NOT or SHOULD NOT?]
+## Existing Uses of id-data
 
-When a protocol which already uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it SHOULD deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries".
-[WG: overreach or not?]
+When a protocol which uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it SHOULD deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries". If the existing content is MIME encoded, the mimeData content type SHOULD be used. Updated protocols that do not deprecate the use of id-data SHOULD provide a rationale for not doing so. Note that accepting the content type id-data during verification is sufficient for a vulnerability to surface. Hence the measures described in {{recipient-verification}} must be adhered to.
 
-When a protocol which already uses the id-data EncapsulatedContentInfo content type within SignedData is updated and cannot deprecate the use of id-data, the protocol SHOULD be updated to either always require or always forbid the inclusion of the signedAttrs field.  If the protocol is modified to make such a requirement, a recipient MUST check whether the signedAttrs field is present or absent as specified by the protocol, and fail processing if the appropriate condition is not met.
+When a protocol uses the id-data EncapsulatedContentInfo content type within SignedData, it SHOULD specify that the signedAttrs field is either always required or always forbidden.  If a protocol makes such a requirement, a recipient MUST check whether the signedAttrs field is present or absent as specified by the protocol, and fail processing if the appropriate condition is not met.
 
-## Recipient Verification
+## Recipient Verification {#recipient-verification}
 
-When a recipient receives a CMS SignedData, it SHOULD check that the EncapsulatedContentInfo content type value is one expected by the protocol and fail processing if it isn't.
-[WG: MUST or SHOULD?]
+When a recipient receives a CMS SignedData, it SHOULD be checked that the EncapsulatedContentInfo content type value is the one expected by the protocol and fail processing if it is not.
 
-When a recipient receives a CMS SignedData where the EncapsulatedContentInfo content type is not id-data, it SHOULD verify both that the correct content type was received and that the SignedData contains the signedAttrs field and fail processing if either of these conditions is not met.
-[WG: MUST or SHOULD?]
+As specified in {{Section 5.3 of RFC5652}}, a SignerInfo signedAttrs field MUST be present if the content type of the EncapsulatedContentInfo value being signed is not id-data.
+To avoid the attack described in {{intro}}, when a recipient receives a CMS SignedData and the EncapsulatedContentInfo content type is not id-data, it SHOULD verify both that the expected content type was received and that each SignerInfo contains the signedAttrs field, and fail processing if either of these conditions is not met.
 
 # Mitigations
-
-If the id-data EncapsulatedContentInfo content type continues to be used, the following mitigations MAY be applied to protect against the vulnerability described in {{intro}}.
+This section describes mitigations for cases where the best practices given above cannot be applied.
+When the id-data EncapsulatedContentInfo content type is used, the following mitigations MAY be applied to protect against the vulnerability described in {{intro}}.
 
 ## Recipient Detection
 
 This mitigation is performed by a recipient when processing SignedData.
 
-If the EncapsulatedContentInfo content type is id-data and signedAttrs is not present, check if the encapsulated or detached content is a valid DER-encoded SignedAttributes structure and fail if it is.
-The mandatory contentType and messageDigest attributes, with their respective OIDs, should give a low probability of a legitimate message which just happens to look like a DER-encoded SignedAttributes structure being flagged.
+If signedAttrs is not present, check if the encapsulated or detached content is a valid DER-encoded SignedAttributes structure and fail if it is.
+The mandatory contentType and messageDigest attributes, with their respective OIDs, should give a low probability of a legitimate message which happens to look like a DER-encoded SignedAttributes structure being flagged.
 
 <aside markdown="block">
 However, a malicious party could intentionally present messages for signing that are detected by the countermeasure and thus introduce errors into the application processing that might be hard to trace for a non-expert.
@@ -140,17 +153,20 @@ However, a malicious party could intentionally present messages for signing that
 
 This mitigation is performed by a sender who signs data received from a 3rd party (potentially an attacker).
 
-If the sender will be using the id-data content type and will not be setting the signedAttrs field, check that the 3rd party content is not a DER-encoded SignedAttributes structure, and fail if it is.
+If the sender is signing 3rd party content and will not be setting the signedAttrs field, check that the content is not a DER-encoded SignedAttributes structure, and fail if it is.
 Note that also in this case, a malicious party could intentionally present messages that trigger this countermeasure and thereby trigger hard-to-trace errors during the signing process.
 
 
 # Security Considerations
 
-The vulnerability is not present in systems where the use of signedAttrs is mandatory, for example: SCEP, Certificate Transparency, RFC 4018 firmware update, German Smart Metering CMS data format.
+The vulnerability is not present in systems where the use of signedAttrs is mandatory, as long as recipients enforce the use of signedAttrs. Some examples where the use of signedAttrs is mandatory are SCEP, Certificate Transparency, RFC 4018 firmware update, German Smart Metering CMS data format.
 Any protocol that uses an EncapsulatedContentInfo content type other than id-data is required to use signed attributes.
 However, this security relies on a correct implementation of the verification routine that ensures the correct content type and presence of signedAttrs.
 
-The vulnerability is not present when the message is signed and then encrypted, as the attacker cannot learn the signature.
+When the message is signed and then encrypted, the vulnerability could still be present if mitigations aren't applied:
+
+- Signing and encryption might not be done on the same endpoints, in which case an attacker between the endpoints might be able to learn the signature for which it could remove or add the signedAttrs.
+- IND-CPA encryption does not give theoretical guarantees against an active attacker and thus does not guarantee that an attacker cannot rearrange the structure.
 
 Conceivably vulnerable systems:
 
@@ -171,9 +187,40 @@ Conceivably vulnerable systems:
 
 It is generally not good security behaviour to sign data received from a 3rd party without first verifying that data.  {{sender-detection}} describes just one verification step that can be performed, specific to the vulnerability described in {{intro}}.
 
+
+# ASN.1 Module
+
+~~~ asn.1
+
+<CODE STARTS>
+
+{::include MimeData-2026.asn}
+
+<CODE ENDS>
+
+~~~
+
+
 # IANA Considerations
 
-This document has no IANA actions.
+In the "SMI Security for S/MIME Module Identifier" registry, create a new entry to point to this document.
+
+| Decimal | Description           | Reference |
+| ------- | -----------           | ----------- |
+| TBD1    | id-mod-mime-data-2026 | \[\[This Document\]\] |
+
+In the "SMI Security for S/MIME Content Types" registry, add a new entry for id-mime-data that points to this document.
+
+| Decimal | Description   | Reference |
+| ------- | -----------   | ----------- |
+| TBD2    | id-mime-data  | \[\[This Document\]\] |
+
+
+In the table "CMS Inner Content Types" add a new entry:
+
+| Name      | Object Identifier             | Reference |
+| -------   | -----------                   | ----------- |
+| mimeData  | 1.2.840.113549.1.9.16.1.TBD2  | \[\[This Document\]\] |
 
 
 --- back
@@ -273,4 +320,4 @@ One of the signed attributes is used to determine which certificate is used to v
 # Acknowledgments
 {:numbered="false"}
 
-TODO acknowledge.
+The authors would like to thank Russ Housley, Carl Wallace, and John Preuß Mattsson for their valuable feedback on this document.
