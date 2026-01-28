@@ -61,7 +61,7 @@ informative:
 
 The Cryptographic Message Syntax (CMS) has different signature verification behaviour based on whether signed attributes are present or not.
 This results in a potential existential forgery vulnerability in CMS and protocols which use CMS.
-This document describes the vulnerability and lists best practices and mitigations for such a vulnerability.
+This document describes the vulnerability and lists mitigations and best practices to avoid it.
 
 
 --- middle
@@ -96,7 +96,7 @@ Thus, if a verifier accepts a content type of id-data in the EncapsulatedContent
 The limited flexibility of either the signed or the forged message in either attack variant may mean the attacks are only narrowly applicable. Nevertheless, due to the wide deployment of the affected protocols and the use of CMS in many proprietary systems, the attacks cannot be entirely disregarded.
 
 As a mitigation, this document defines the new mimeData content type to be used in new uses of the CMS SignedData type when the encapsulated content is MIME encoded and thus avoid the use of the id-data content type.
-This document also describes best practices for the CMS SignedData type.
+This document further describes best practices and mitigations that can also be applied to those protocols or systems that continue to use the content type id-data.
 
 # Conventions and Definitions
 
@@ -145,9 +145,7 @@ This mitigation is performed by a recipient when processing SignedData.
 If signedAttrs is not present, check if the encapsulated or detached content is a valid DER-encoded SignedAttributes structure and fail if it is.
 The mandatory contentType and messageDigest attributes, with their respective OIDs, should give a low probability of a legitimate message which happens to look like a DER-encoded SignedAttributes structure being flagged.
 
-<aside markdown="block">
 However, a malicious party could intentionally present messages for signing that are detected by the countermeasure and thus introduce errors into the application processing that might be hard to trace for a non-expert.
-</aside>
 
 ## Sender Detection {#sender-detection}
 
@@ -163,7 +161,7 @@ The vulnerability is not present in systems where the use of signedAttrs is mand
 Any protocol that uses an EncapsulatedContentInfo content type other than id-data is required to use signed attributes.
 However, this security relies on a correct implementation of the verification routine that ensures the correct content type and presence of signedAttrs.
 
-When the message is signed and then encrypted, the vulnerability could still be present if mitigations aren't applied:
+When the message is signed and then encrypted, though in the general case this will make it difficult for the attacker to learn the signature, the vulnerability might still be present if mitigations are not applied:
 
 - Signing and encryption might not be done on the same endpoints, in which case an attacker between the endpoints might be able to learn the signature for which it could remove or add the signedAttrs.
 - IND-CPA encryption does not give theoretical guarantees against an active attacker and thus does not guarantee that an attacker cannot rearrange the structure.
@@ -173,19 +171,19 @@ Conceivably vulnerable systems:
 - Unencrypted firmware update denial of service
    - Secure firmware updates often use signatures without encryption.
    If the forged message can bring a device, due to lack of robustness in the parser implementation, into an error state, this may lead to a denial of service vulnerability.
-   The possibility of creating a targeted exploit can be excluded with greatest certainty in this case due to the lack of control the attacker has over the forged message.
+   The possibility of creating a targeted exploit can be excluded with great certainty in this case due to the lack of control the attacker has over the forged message.
 - Dense message space
    - If a protocol has a dense message space, i.e. a high probability that the forged message represents a valid command or the beginning of a valid command, then, especially if the parser is permissive with respect to trailing data, there is a risk that the message is accepted as valid.
    This requires a protocol where messages are signed but not encrypted.
 - Signing unstructured data
    - Protocols that sign unencrypted unstructured messages, e.g. tokens, might be affected in that the signature of one token might result in the corresponding forged message being another valid token.
 - External signatures over unstructured data
-   - The probably strongest affected class of systems would be one that uses external signatures, i.e. CMS or PKCS#7 signatures with absent content (that may be transmitted encrypted separately) over unstructured data, e.g. a token of variable length.
+   - The probably strongest affected class of systems would be one that uses external signatures, i.e. CMS signatures with absent content (that may be transmitted encrypted separately) over unstructured data, e.g. a token of variable length.
    In that case the attacker could create a signed data object for a known secret.
 - Systems with permissive parsers
-   - In addition to potential issues where the protocol parser is permissive (e.g. with respect to trailing space), if the CMS parser is permissive (e.g. allows non-protocol content types, or allows missing signedAttrs with content types either than id-data) then this could result in accepting invalid messages.
+   - In addition to potential issues where the protocol parser is permissive (e.g. with respect to trailing space), if the CMS parser is permissive (e.g. allows non-protocol content types, or allows missing signedAttrs with content types other than id-data) then this could result in accepting invalid messages.
 
-It is generally not good security behaviour to sign data received from a 3rd party without first verifying that data.  {{sender-detection}} describes just one verification step that can be performed, specific to the vulnerability described in {{intro}}.
+Further note that it is generally not good security behaviour to sign data received from a 3rd party without first verifying that data.  {{sender-detection}} describes just one verification step that can be performed, specific to the vulnerability described in {{intro}}.
 
 
 # ASN.1 Module
