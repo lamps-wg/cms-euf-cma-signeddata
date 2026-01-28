@@ -5,8 +5,8 @@
 Limited Additional Mechanisms for PKIX and SMIME            D. Van Geest
 Internet-Draft                                       CryptoNext Security
 Intended status: Best Current Practice                       F. Strenzke
-Expires: 31 July 2026                                             MTG AG
-                                                         27 January 2026
+Expires: 1 August 2026                                            MTG AG
+                                                         28 January 2026
 
 
          Best Practices for Signed Attributes in CMS SignedData
@@ -18,8 +18,8 @@ Abstract
    verification behaviour based on whether signed attributes are present
    or not.  This results in a potential existential forgery
    vulnerability in CMS and protocols which use CMS.  This document
-   describes the vulnerability and lists best practices and mitigations
-   for such a vulnerability.
+   describes the vulnerability and lists mitigations and best practices
+   to avoid it.
 
 About This Document
 
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 31 July 2026.
+   This Internet-Draft will expire on 1 August 2026.
 
 Copyright Notice
 
@@ -168,8 +168,9 @@ Table of Contents
    As a mitigation, this document defines the new mimeData content type
    to be used in new uses of the CMS SignedData type when the
    encapsulated content is MIME encoded and thus avoid the use of the
-   id-data content type.  This document also describes best practices
-   for the CMS SignedData type.
+   id-data content type.  This document further describes best practices
+   and mitigations that can also be applied to those protocols or
+   systems that continue to use the content type id-data.
 
 2.  Conventions and Definitions
 
@@ -256,10 +257,10 @@ Table of Contents
    message which happens to look like a DER-encoded SignedAttributes
    structure being flagged.
 
-      |  However, a malicious party could intentionally present messages
-      |  for signing that are detected by the countermeasure and thus
-      |  introduce errors into the application processing that might be
-      |  hard to trace for a non-expert.
+   However, a malicious party could intentionally present messages for
+   signing that are detected by the countermeasure and thus introduce
+   errors into the application processing that might be hard to trace
+   for a non-expert.
 
 5.2.  Sender Detection
 
@@ -285,8 +286,10 @@ Table of Contents
    implementation of the verification routine that ensures the correct
    content type and presence of signedAttrs.
 
-   When the message is signed and then encrypted, the vulnerability
-   could still be present if mitigations aren't applied:
+   When the message is signed and then encrypted, though in the general
+   case this will make it difficult for the attacker to learn the
+   signature, the vulnerability might still be present if mitigations
+   are not applied:
 
    *  Signing and encryption might not be done on the same endpoints, in
       which case an attacker between the endpoints might be able to
@@ -306,7 +309,7 @@ Table of Contents
          lack of robustness in the parser implementation, into an error
          state, this may lead to a denial of service vulnerability.  The
          possibility of creating a targeted exploit can be excluded with
-         greatest certainty in this case due to the lack of control the
+         great certainty in this case due to the lack of control the
          attacker has over the forged message.
 
    *  Dense message space
@@ -328,24 +331,24 @@ Table of Contents
    *  External signatures over unstructured data
 
       -  The probably strongest affected class of systems would be one
-         that uses external signatures, i.e. CMS or PKCS#7 signatures
-         with absent content (that may be transmitted encrypted
-         separately) over unstructured data, e.g. a token of variable
-         length.  In that case the attacker could create a signed data
-         object for a known secret.
+         that uses external signatures, i.e. CMS signatures with absent
+         content (that may be transmitted encrypted separately) over
+         unstructured data, e.g. a token of variable length.  In that
+         case the attacker could create a signed data object for a known
+         secret.
 
    *  Systems with permissive parsers
 
       -  In addition to potential issues where the protocol parser is
          permissive (e.g. with respect to trailing space), if the CMS
          parser is permissive (e.g. allows non-protocol content types,
-         or allows missing signedAttrs with content types either than
-         id-data) then this could result in accepting invalid messages.
+         or allows missing signedAttrs with content types other than id-
+         data) then this could result in accepting invalid messages.
 
-   It is generally not good security behaviour to sign data received
-   from a 3rd party without first verifying that data.  Section 5.2
-   describes just one verification step that can be performed, specific
-   to the vulnerability described in Section 1.
+   Further note that it is generally not good security behaviour to sign
+   data received from a 3rd party without first verifying that data.
+   Section 5.2 describes just one verification step that can be
+   performed, specific to the vulnerability described in Section 1.
 
 7.  ASN.1 Module
 
