@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-27T01:44:15.052073+00:00",
+  "timestamp": "2026-01-29T01:52:27.304889+00:00",
   "repo": "lamps-wg/cms-euf-cma-signeddata",
   "labels": [
     {
@@ -537,24 +537,26 @@
       "id": "PR_kwDONVsH1s6-9dCF",
       "title": "Address WG adoption feedback from Russ Housley, Carl Wallace and John\u2026",
       "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/pull/11",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "danvangeest",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "\u2026 Preu\u00df Mattsson",
       "createdAt": "2026-01-23T15:37:41Z",
-      "updatedAt": "2026-01-26T15:52:16Z",
+      "updatedAt": "2026-01-27T13:48:52Z",
       "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
       "baseRefName": "main",
       "baseRefOid": "dab745488ec79b5f4eb65da1f7740b368491952b",
       "headRepository": "lamps-wg/cms-euf-cma-signeddata",
       "headRefName": "dvg/post_adoption_feedback",
       "headRefOid": "9708c0aea8973830bcaaafa0cb3bd368671cd384",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2026-01-27T13:48:44Z",
+      "mergedAt": "2026-01-27T13:48:44Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "513489fc053050c360d01c2b109b2ee5da0a1b99"
+      },
       "comments": [
         {
           "author": "danvangeest",
@@ -626,6 +628,48 @@
           "body": "",
           "createdAt": "2026-01-26T15:52:16Z",
           "updatedAt": "2026-01-26T15:52:16Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 12,
+      "id": "PR_kwDONVsH1s6_zJGs",
+      "title": "some proposed corrections",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/pull/12",
+      "state": "MERGED",
+      "author": "falko-strenzke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Hi @danvangeest, I have these proposed editorial corrections. Regarding the rendering of one of the paragraphs as an \"aside\", I was not sure what that would effectively signify to the reader, so I suggest to render it as a normal paragraph. But consider that merely as a suggestion.\r\n\r\nI checked the whole draft (though I did not check the validity of the analysis of the various RFCs in the appendix). These are my final proposed corrections. From my side we can ask for WGLC after that.\r\n",
+      "createdAt": "2026-01-28T09:08:52Z",
+      "updatedAt": "2026-01-28T11:13:16Z",
+      "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
+      "baseRefName": "main",
+      "baseRefOid": "513489fc053050c360d01c2b109b2ee5da0a1b99",
+      "headRepository": "lamps-wg/cms-euf-cma-signeddata",
+      "headRefName": "falko-review-2026-01",
+      "headRefOid": "466a929bfda032ca28342eb02fea3ca56693cf26",
+      "closedAt": "2026-01-28T11:05:28Z",
+      "mergedAt": "2026-01-28T11:05:28Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "ac8cbdce0a37784e1db5e1a513ae5c1dbebec18a"
+      },
+      "comments": [],
+      "reviews": [
+        {
+          "id": "PRR_kwDONVsH1s7dfuqA",
+          "commit": {
+            "abbreviatedOid": "466a929"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2026-01-28T11:05:21Z",
+          "updatedAt": "2026-01-28T11:05:21Z",
           "comments": []
         }
       ]
