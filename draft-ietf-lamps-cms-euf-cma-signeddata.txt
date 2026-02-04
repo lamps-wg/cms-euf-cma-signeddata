@@ -5,8 +5,8 @@
 Limited Additional Mechanisms for PKIX and SMIME            D. Van Geest
 Internet-Draft                                       CryptoNext Security
 Intended status: Best Current Practice                       F. Strenzke
-Expires: 1 August 2026                                            MTG AG
-                                                         28 January 2026
+Expires: 8 August 2026                                            MTG AG
+                                                         4 February 2026
 
 
          Best Practices for Signed Attributes in CMS SignedData
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 1 August 2026.
+   This Internet-Draft will expire on 8 August 2026.
 
 Copyright Notice
 
@@ -184,7 +184,7 @@ Table of Contents
 
    The following object identifier identifies the mimeData content type:
 
-     id-mime-data OBJECT IDENTIFIER ::= { iso(1) member-body(2)
+     id-ct-mimeData OBJECT IDENTIFIER ::= { iso(1) member-body(2)
          us(840) rsadsi(113549) pkcs(1) pkcs9(9) smime(16) ct(1)
          TBD2 }
 
@@ -366,11 +366,11 @@ Table of Contents
             pkcs(1) pkcs-9(9) smime(16) modules(0) id-mod-cms-2009(58) }
        ;
 
-       id-mime-data OBJECT IDENTIFIER ::= { iso(1) member-body(2)
+       id-ct-mimeData OBJECT IDENTIFIER ::= { iso(1) member-body(2)
            us(840) rsadsi(113549) pkcs(1) pkcs9(9) smime(16) ct(1)
            TBD2 }
 
-       ct-MimeData CONTENT-TYPE ::= { IDENTIFIED BY id-mime-data }
+       ct-mimeData CONTENT-TYPE ::= { IDENTIFIED BY id-ct-mimeData }
 
    END
 
@@ -389,14 +389,14 @@ Table of Contents
 
                                   Table 1
 
-   In the "SMI Security for S/MIME Content Types" registry, add a new
-   entry for id-mime-data that points to this document.
+   In the "SMI Security for S/MIME CMS Content Type" registry, add a new
+   entry for id-ct-mimeData that points to this document.
 
-              +=========+==============+===================+
-              | Decimal | Description  | Reference         |
-              +=========+==============+===================+
-              | TBD2    | id-mime-data | [[This Document]] |
-              +---------+--------------+-------------------+
+             +=========+================+===================+
+             | Decimal | Description    | Reference         |
+             +=========+================+===================+
+             | TBD2    | id-ct-mimeData | [[This Document]] |
+             +---------+----------------+-------------------+
 
                                  Table 2
 
