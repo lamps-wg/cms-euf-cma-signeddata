@@ -10,10 +10,10 @@ IMPORTS
          pkcs(1) pkcs-9(9) smime(16) modules(0) id-mod-cms-2009(58) }
     ;
 
-    id-mime-data OBJECT IDENTIFIER ::= { iso(1) member-body(2)
+    id-ct-mimeData OBJECT IDENTIFIER ::= { iso(1) member-body(2)
         us(840) rsadsi(113549) pkcs(1) pkcs9(9) smime(16) ct(1)
         TBD2 }
 
-    ct-MimeData CONTENT-TYPE ::= { IDENTIFIED BY id-mime-data }
+    ct-mimeData CONTENT-TYPE ::= { IDENTIFIED BY id-ct-mimeData }
 
 END

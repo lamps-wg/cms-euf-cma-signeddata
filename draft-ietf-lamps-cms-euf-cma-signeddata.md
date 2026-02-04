@@ -107,7 +107,7 @@ This document further describes best practices and mitigations that can also be 
 The following object identifier identifies the mimeData content type:
 
 ~~~ asn.1
-  id-mime-data OBJECT IDENTIFIER ::= { iso(1) member-body(2)
+  id-ct-mimeData OBJECT IDENTIFIER ::= { iso(1) member-body(2)
       us(840) rsadsi(113549) pkcs(1) pkcs9(9) smime(16) ct(1)
       TBD2 }
 ~~~
@@ -207,11 +207,11 @@ In the "SMI Security for S/MIME Module Identifier" registry, create a new entry 
 | ------- | -----------           | ----------- |
 | TBD1    | id-mod-mime-data-2026 | \[\[This Document\]\] |
 
-In the "SMI Security for S/MIME Content Types" registry, add a new entry for id-mime-data that points to this document.
+In the "SMI Security for S/MIME CMS Content Type" registry, add a new entry for id-ct-mimeData that points to this document.
 
-| Decimal | Description   | Reference |
-| ------- | -----------   | ----------- |
-| TBD2    | id-mime-data  | \[\[This Document\]\] |
+| Decimal | Description     | Reference |
+| ------- | -----------     | ----------- |
+| TBD2    | id-ct-mimeData  | \[\[This Document\]\] |
 
 
 In the table "CMS Inner Content Types" add a new entry:
