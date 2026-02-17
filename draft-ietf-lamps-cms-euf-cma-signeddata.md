@@ -56,6 +56,16 @@ informative:
     format:
       PDF: https://eprint.iacr.org/2023/1801.pdf
 
+  FIPS-205:
+      target: https://doi.org/10.6028/NIST.FIPS.205
+      title: Stateless Hash-Based Digital Signature Standard
+      author:
+        - org: National Institute of Standards and Technology
+      date: August 2024
+
+  RFC8391:
+
+  RFC8554:
 
 --- abstract
 
@@ -157,6 +167,8 @@ Note that also in this case, a malicious party could intentionally present messa
 
 # Security Considerations
 
+## On the Applicability of the Vulnerability
+
 The vulnerability is not present in systems where the use of signedAttrs is mandatory, as long as recipients enforce the use of signedAttrs. Some examples where the use of signedAttrs is mandatory are SCEP, Certificate Transparency, RFC 4018 firmware update, German Smart Metering CMS data format.
 Any protocol that uses an EncapsulatedContentInfo content type other than id-data is required to use signed attributes.
 However, this security relies on a correct implementation of the verification routine that ensures the correct content type and presence of signedAttrs.
@@ -185,6 +197,11 @@ Conceivably vulnerable systems:
 
 Further note that it is generally not good security behaviour to sign data received from a 3rd party without first verifying that data.  {{sender-detection}} describes just one verification step that can be performed, specific to the vulnerability described in {{intro}}.
 
+## Degradation of Security Guarantees Through the Use of Signed Attributes
+
+The use of signed attributes in CMS signatures effectively reverts any signature scheme to a scheme based on the hash-then-sign paradigm. Modern signature schemes divert from the hash-then-sign paradigm which allows them to reach better security reductions. Specifically, some signature schemes like SLH-DSA [FIPS-205], LMS/HSS [RFC8554], and XMSS [RFC8391] prefix a randomization string to the internal hash operation of the scheme's signature generation function and thus achieve independence from the assumption of collision resistance of the underlying hash-function in their security reduction.
+
+It should be noted that by employing signed attributes in CMS signatures, the modern signature schemes loose this security property.
 
 # ASN.1 Module
 
