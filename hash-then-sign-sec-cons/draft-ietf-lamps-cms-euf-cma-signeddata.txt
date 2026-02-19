@@ -370,8 +370,7 @@ Table of Contents
    reduction.
 
    It should be noted that by employing signed attributes in CMS
-   signatures, the modern signature schemes loose this security
-   property.
+   signatures, the modern signature schemes lose this security property.
 
 7.  ASN.1 Module
 
