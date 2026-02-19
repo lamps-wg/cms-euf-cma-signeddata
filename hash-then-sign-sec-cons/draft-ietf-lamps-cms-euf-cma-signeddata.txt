@@ -5,8 +5,8 @@
 Limited Additional Mechanisms for PKIX and SMIME            D. Van Geest
 Internet-Draft                                       CryptoNext Security
 Intended status: Best Current Practice                       F. Strenzke
-Expires: 21 August 2026                                           MTG AG
-                                                        17 February 2026
+Expires: 23 August 2026                                           MTG AG
+                                                        19 February 2026
 
 
          Best Practices for Signed Attributes in CMS SignedData
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 21 August 2026.
+   This Internet-Draft will expire on 23 August 2026.
 
 Copyright Notice
 
@@ -360,7 +360,7 @@ Table of Contents
 
    The use of signed attributes in CMS signatures effectively reverts
    any signature scheme to a scheme based on the hash-then-sign
-   paradigm.  Modern signature schemes divert from the hash-then-sign
+   paradigm.  Modern signature schemes diverge from the hash-then-sign
    paradigm which allows them to reach better security reductions.
    Specifically, some signature schemes like SLH-DSA [FIPS-205], LMS/HSS
    [RFC8554], and XMSS [RFC8391] prefix a randomization string to the
