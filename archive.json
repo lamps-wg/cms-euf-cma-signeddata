@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-01-29T01:52:27.304889+00:00",
+  "timestamp": "2026-02-19T01:59:58.065068+00:00",
   "repo": "lamps-wg/cms-euf-cma-signeddata",
   "labels": [
     {
@@ -673,6 +673,32 @@
           "comments": []
         }
       ]
+    },
+    {
+      "number": 13,
+      "id": "PR_kwDONVsH1s7EV3KC",
+      "title": "security considerations / signature hash security reductions ",
+      "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/pull/13",
+      "state": "OPEN",
+      "author": "falko-strenzke",
+      "authorAssociation": "COLLABORATOR",
+      "assignees": [],
+      "labels": [],
+      "body": "",
+      "createdAt": "2026-02-17T12:00:32Z",
+      "updatedAt": "2026-02-17T12:00:32Z",
+      "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
+      "baseRefName": "main",
+      "baseRefOid": "f4a239c012180df2b76e8e5a4a2576476a90172a",
+      "headRepository": "lamps-wg/cms-euf-cma-signeddata",
+      "headRefName": "hash-then-sign-sec-cons",
+      "headRefOid": "838687c564b7b93cc447b9062a05e491be9d4a67",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
