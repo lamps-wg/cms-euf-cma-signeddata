@@ -452,9 +452,10 @@ Table of Contents
 
 9.2.  Informative References
 
-   [FIPS-205] National Institute of Standards and Technology, "Stateless
-              Hash-Based Digital Signature Standard", August 2024,
-              <https://doi.org/10.6028/NIST.FIPS.205>.
+   [FIPS205]  "Stateless hash-based digital signature standard",
+              National Institute of Standards and Technology (U.S.),
+              DOI 10.6028/nist.fips.205, August 2024,
+              <https://doi.org/10.6028/nist.fips.205>.
 
    [LAMPS121] Strenzke, F., "EUF-CMA for CMS SignedData", 6 November
               2024, <https://datatracker.ietf.org/meeting/121/materials/

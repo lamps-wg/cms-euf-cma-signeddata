@@ -1464,7 +1464,7 @@ However, this security relies on a correct implementation of the verification ro
         <h3 id="name-degradation-of-security-gua">
 <a href="#section-6.2" class="section-number selfRef">6.2. </a><a href="#name-degradation-of-security-gua" class="section-name selfRef">Degradation of Security Guarantees Through the Use of Signed Attributes</a>
         </h3>
-<p id="section-6.2-1">The use of signed attributes in CMS signatures effectively reverts any signature scheme to a scheme based on the hash-then-sign paradigm. Modern signature schemes diverge from the hash-then-sign paradigm which allows them to reach better security reductions. Specifically, some signature schemes like SLH-DSA <span>[<a href="#FIPS-205" class="cite xref">FIPS-205</a>]</span>, LMS/HSS <span>[<a href="#RFC8554" class="cite xref">RFC8554</a>]</span>, and XMSS <span>[<a href="#RFC8391" class="cite xref">RFC8391</a>]</span> prefix a randomization string to the internal hash operation of the scheme's signature generation function and thus achieve independence from the assumption of collision resistance of the underlying hash-function in their security reduction.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.2-1">The use of signed attributes in CMS signatures effectively reverts any signature scheme to a scheme based on the hash-then-sign paradigm. Modern signature schemes diverge from the hash-then-sign paradigm which allows them to reach better security reductions. Specifically, some signature schemes like SLH-DSA [FIPS-205], LMS/HSS <span>[<a href="#RFC8554" class="cite xref">RFC8554</a>]</span>, and XMSS <span>[<a href="#RFC8391" class="cite xref">RFC8391</a>]</span> prefix a randomization string to the internal hash operation of the scheme's signature generation function and thus achieve independence from the assumption of collision resistance of the underlying hash-function in their security reduction.<a href="#section-6.2-1" class="pilcrow">¶</a></p>
 <p id="section-6.2-2">It should be noted that by employing signed attributes in CMS signatures, the modern signature schemes loose this security property.<a href="#section-6.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1598,9 +1598,9 @@ END
 <a href="#section-9.2" class="section-number selfRef">9.2. </a><a href="#name-informative-references" class="section-name selfRef">Informative References</a>
         </h3>
 <dl class="references">
-<dt id="FIPS-205">[FIPS-205]</dt>
+<dt id="FIPS205">[FIPS205]</dt>
         <dd>
-<span class="refAuthor">National Institute of Standards and Technology</span>, <span class="refTitle">"Stateless Hash-Based Digital Signature Standard"</span>, <time datetime="2024-08" class="refDate">August 2024</time>, <span>&lt;<a href="https://doi.org/10.6028/NIST.FIPS.205">https://doi.org/10.6028/NIST.FIPS.205</a>&gt;</span>. </dd>
+<span class="refTitle">"Stateless hash-based digital signature standard"</span>, <span class="refContent">National Institute of Standards and Technology (U.S.)</span>, <span class="seriesInfo">DOI 10.6028/nist.fips.205</span>, <time datetime="2024-08" class="refDate">August 2024</time>, <span>&lt;<a href="https://doi.org/10.6028/nist.fips.205">https://doi.org/10.6028/nist.fips.205</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="LAMPS121">[LAMPS121]</dt>
         <dd>
