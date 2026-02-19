@@ -56,12 +56,7 @@ informative:
     format:
       PDF: https://eprint.iacr.org/2023/1801.pdf
 
-  FIPS-205:
-      target: https://doi.org/10.6028/NIST.FIPS.205
-      title: Stateless Hash-Based Digital Signature Standard
-      author:
-        - org: National Institute of Standards and Technology
-      date: August 2024
+  FIPS205: DOI.10.6028/NIST.FIPS.205
 
   RFC8391:
 
