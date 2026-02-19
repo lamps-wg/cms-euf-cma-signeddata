@@ -5,8 +5,8 @@
 Limited Additional Mechanisms for PKIX and SMIME            D. Van Geest
 Internet-Draft                                       CryptoNext Security
 Intended status: Best Current Practice                       F. Strenzke
-Expires: 8 August 2026                                            MTG AG
-                                                         4 February 2026
+Expires: 23 August 2026                                           MTG AG
+                                                        19 February 2026
 
 
          Best Practices for Signed Attributes in CMS SignedData
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 8 August 2026.
+   This Internet-Draft will expire on 23 August 2026.
 
 Copyright Notice
 
@@ -83,6 +83,9 @@ Table of Contents
      5.1.  Recipient Detection
      5.2.  Sender Detection
    6.  Security Considerations
+     6.1.  On the Applicability of the Vulnerability
+     6.2.  Degradation of Security Guarantees Through the Use of
+           Signed Attributes
    7.  ASN.1 Module
    8.  IANA Considerations
    9.  References
@@ -276,6 +279,8 @@ Table of Contents
 
 6.  Security Considerations
 
+6.1.  On the Applicability of the Vulnerability
+
    The vulnerability is not present in systems where the use of
    signedAttrs is mandatory, as long as recipients enforce the use of
    signedAttrs.  Some examples where the use of signedAttrs is mandatory
@@ -349,6 +354,23 @@ Table of Contents
    data received from a 3rd party without first verifying that data.
    Section 5.2 describes just one verification step that can be
    performed, specific to the vulnerability described in Section 1.
+
+6.2.  Degradation of Security Guarantees Through the Use of Signed
+      Attributes
+
+   The use of signed attributes in CMS signatures effectively reverts
+   any signature scheme to a scheme based on the hash-then-sign
+   paradigm.  Modern signature schemes diverge from the hash-then-sign
+   paradigm which allows them to reach better security reductions.
+   Specifically, some signature schemes like SLH-DSA [FIPS205], LMS/HSS
+   [RFC8554], and XMSS [RFC8391] prefix a randomization string to the
+   internal hash operation of the scheme's signature generation function
+   and thus achieve independence from the assumption of collision
+   resistance of the underlying hash-function in their security
+   reduction.
+
+   It should be noted that by employing signed attributes in CMS
+   signatures, the modern signature schemes lose this security property.
 
 7.  ASN.1 Module
 
@@ -429,6 +451,11 @@ Table of Contents
 
 9.2.  Informative References
 
+   [FIPS205]  "Stateless hash-based digital signature standard",
+              National Institute of Standards and Technology (U.S.),
+              DOI 10.6028/nist.fips.205, August 2024,
+              <https://doi.org/10.6028/nist.fips.205>.
+
    [LAMPS121] Strenzke, F., "EUF-CMA for CMS SignedData", 6 November
               2024, <https://datatracker.ietf.org/meeting/121/materials/
               slides-121-lamps-cms-euf-cma-00>.
@@ -476,10 +503,19 @@ Table of Contents
               DOI 10.17487/RFC6257, May 2011,
               <https://www.rfc-editor.org/rfc/rfc6257>.
 
+   [RFC8391]  Huelsing, A., Butin, D., Gazdag, S., Rijneveld, J., and A.
+              Mohaisen, "XMSS: eXtended Merkle Signature Scheme",
+              RFC 8391, DOI 10.17487/RFC8391, May 2018,
+              <https://www.rfc-editor.org/rfc/rfc8391>.
+
    [RFC8551]  Schaad, J., Ramsdell, B., and S. Turner, "Secure/
               Multipurpose Internet Mail Extensions (S/MIME) Version 4.0
               Message Specification", RFC 8551, DOI 10.17487/RFC8551,
               April 2019, <https://www.rfc-editor.org/rfc/rfc8551>.
+
+   [RFC8554]  McGrew, D., Curcio, M., and S. Fluhrer, "Leighton-Micali
+              Hash-Based Signatures", RFC 8554, DOI 10.17487/RFC8554,
+              April 2019, <https://www.rfc-editor.org/rfc/rfc8554>.
 
    [RFC8572]  Watsen, K., Farrer, I., and M. Abrahamsson, "Secure Zero
               Touch Provisioning (SZTP)", RFC 8572,
