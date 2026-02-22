@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-02-19T01:59:58.065068+00:00",
+  "timestamp": "2026-02-22T01:59:29.968969+00:00",
   "repo": "lamps-wg/cms-euf-cma-signeddata",
   "labels": [
     {
@@ -679,26 +679,81 @@
       "id": "PR_kwDONVsH1s7EV3KC",
       "title": "security considerations / signature hash security reductions ",
       "url": "https://github.com/lamps-wg/cms-euf-cma-signeddata/pull/13",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "falko-strenzke",
       "authorAssociation": "COLLABORATOR",
       "assignees": [],
       "labels": [],
       "body": "",
       "createdAt": "2026-02-17T12:00:32Z",
-      "updatedAt": "2026-02-17T12:00:32Z",
+      "updatedAt": "2026-02-19T13:25:01Z",
       "baseRepository": "lamps-wg/cms-euf-cma-signeddata",
       "baseRefName": "main",
       "baseRefOid": "f4a239c012180df2b76e8e5a4a2576476a90172a",
       "headRepository": "lamps-wg/cms-euf-cma-signeddata",
       "headRefName": "hash-then-sign-sec-cons",
-      "headRefOid": "838687c564b7b93cc447b9062a05e491be9d4a67",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "6dd244d3cee5ab700bac97af898af2c958c653e0",
+      "closedAt": "2026-02-19T13:25:01Z",
+      "mergedAt": "2026-02-19T13:25:01Z",
+      "mergedBy": "danvangeest",
+      "mergeCommit": {
+        "oid": "48f2703ba1caadd19c6f67f6197ccbaf88af3ffb"
+      },
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "PRR_kwDONVsH1s7kCg4N",
+          "commit": {
+            "abbreviatedOid": "838687c"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-19T13:17:23Z",
+          "updatedAt": "2026-02-19T13:23:03Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\nThe use of signed attributes in CMS signatures effectively reverts any signature scheme to a scheme based on the hash-then-sign paradigm. Modern signature schemes diverge from the hash-then-sign paradigm which allows them to reach better security reductions. Specifically, some signature schemes like SLH-DSA [FIPS-205], LMS/HSS [RFC8554], and XMSS [RFC8391] prefix a randomization string to the internal hash operation of the scheme's signature generation function and thus achieve independence from the assumption of collision resistance of the underlying hash-function in their security reduction.\n```",
+              "createdAt": "2026-02-19T13:17:23Z",
+              "updatedAt": "2026-02-19T13:23:03Z"
+            },
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\n  FIPS205: DOI.10.6028/NIST.FIPS.205\n```",
+              "createdAt": "2026-02-19T13:21:11Z",
+              "updatedAt": "2026-02-19T13:23:03Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "```suggestion\nIt should be noted that by employing signed attributes in CMS signatures, the modern signature schemes lose this security property.\n```",
+              "createdAt": "2026-02-19T13:22:28Z",
+              "updatedAt": "2026-02-19T13:23:03Z"
+            }
+          ]
+        },
+        {
+          "id": "PRR_kwDONVsH1s7kCrxz",
+          "commit": {
+            "abbreviatedOid": "77b096f"
+          },
+          "author": "danvangeest",
+          "authorAssociation": "COLLABORATOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2026-02-19T13:23:44Z",
+          "updatedAt": "2026-02-19T13:23:51Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\nThe use of signed attributes in CMS signatures effectively reverts any signature scheme to a scheme based on the hash-then-sign paradigm. Modern signature schemes diverge from the hash-then-sign paradigm which allows them to reach better security reductions. Specifically, some signature schemes like SLH-DSA [FIPS205], LMS/HSS [RFC8554], and XMSS [RFC8391] prefix a randomization string to the internal hash operation of the scheme's signature generation function and thus achieve independence from the assumption of collision resistance of the underlying hash-function in their security reduction.\n```",
+              "createdAt": "2026-02-19T13:23:44Z",
+              "updatedAt": "2026-02-19T13:23:51Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
