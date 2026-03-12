@@ -214,9 +214,9 @@ Table of Contents
    Registries" registry group.  If the existing content is MIME encoded,
    the mimeData content type SHOULD be used.  Updated protocols that do
    not deprecate the use of id-data SHOULD provide a rationale for not
-   doing so.  Note that accepting the content type id-data during
-   verification is sufficient for a vulnerability to surface.  Hence the
-   measures described in Section 4.2 must be adhered to.
+   doing so.  Since accepting the content type id-data during
+   verification is sufficient for a vulnerability to surface, they
+   SHOULD also adopt the measuers described in Section 4.2.
 
    When a protocol uses the id-data EncapsulatedContentInfo content type
    within SignedData, it SHOULD specify that the signedAttrs field is
@@ -291,10 +291,9 @@ Table of Contents
    implementation of the verification routine that ensures the correct
    content type and presence of signedAttrs.
 
-   When the message is signed and then encrypted, though in the general
-   case this will make it difficult for the attacker to learn the
-   signature, the vulnerability might still be present if mitigations
-   are not applied:
+   When the message is signed and then encrypted, it will be difficult
+   for the attacker to learn the signature.  However, the vulnerability
+   might still be present if mitigations are not applied.  For example:
 
    *  Signing and encryption might not be done on the same endpoints, in
       which case an attacker between the endpoints might be able to
