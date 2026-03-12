@@ -128,7 +128,7 @@ New uses of the CMS SignedData MUST NOT use the id-data EncapsulatedContentInfo 
 
 ## Existing Uses of id-data
 
-When a protocol which uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it SHOULD deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries". If the existing content is MIME encoded, the mimeData content type SHOULD be used. Updated protocols that do not deprecate the use of id-data SHOULD provide a rationale for not doing so. Note that accepting the content type id-data during verification is sufficient for a vulnerability to surface. Hence the measures described in {{recipient-verification}} must be adhered to.
+When a protocol which uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it SHOULD deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries" registry group. If the existing content is MIME encoded, the mimeData content type SHOULD be used. Updated protocols that do not deprecate the use of id-data SHOULD provide a rationale for not doing so. Note that accepting the content type id-data during verification is sufficient for a vulnerability to surface. Hence the measures described in {{recipient-verification}} must be adhered to.
 
 When a protocol uses the id-data EncapsulatedContentInfo content type within SignedData, it SHOULD specify that the signedAttrs field is either always required or always forbidden.  If a protocol makes such a requirement, a recipient MUST check whether the signedAttrs field is present or absent as specified by the protocol, and fail processing if the appropriate condition is not met.
 
@@ -213,20 +213,19 @@ It should be noted that by employing signed attributes in CMS signatures, the mo
 
 # IANA Considerations
 
-In the "SMI Security for S/MIME Module Identifier" registry, create a new entry to point to this document.
+In the "SMI Security for S/MIME Module Identifier" (1.2.840.113549.1.9.16.0) registry within the "Structure of Management Information (SMI) Numbers (MIB Module Registrations)" registry group, create a new entry to point to this document.
 
 | Decimal | Description           | Reference |
 | ------- | -----------           | ----------- |
 | TBD1    | id-mod-mime-data-2026 | \[\[This Document\]\] |
 
-In the "SMI Security for S/MIME CMS Content Type" registry, add a new entry for id-ct-mimeData that points to this document.
+In the "SMI Security for S/MIME CMS Content Type" (1.2.840.113549.1.9.16.1) registry within the "Structure of Management Information (SMI) Numbers (MIB Module Registrations)" registry group, add a new entry for id-ct-mimeData that points to this document.
 
 | Decimal | Description     | Reference |
 | ------- | -----------     | ----------- |
 | TBD2    | id-ct-mimeData  | \[\[This Document\]\] |
 
-
-In the table "CMS Inner Content Types" add a new entry:
+In the "CMS Inner Content Types" registry within "Media Type Sub-Parameter Registries" registry group, add a new entry:
 
 | Name      | Object Identifier             | Reference |
 | -------   | -----------                   | ----------- |
