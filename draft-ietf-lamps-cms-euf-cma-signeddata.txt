@@ -5,8 +5,8 @@
 Limited Additional Mechanisms for PKIX and SMIME            D. Van Geest
 Internet-Draft                                       CryptoNext Security
 Intended status: Best Current Practice                       F. Strenzke
-Expires: 23 August 2026                                           MTG AG
-                                                        19 February 2026
+Expires: 13 September 2026                                        MTG AG
+                                                           12 March 2026
 
 
          Best Practices for Signed Attributes in CMS SignedData
@@ -55,7 +55,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 23 August 2026.
+   This Internet-Draft will expire on 13 September 2026.
 
 Copyright Notice
 
@@ -211,12 +211,12 @@ Table of Contents
    use of id-data and use a different (new or existing) identifier.  A
    partial list of such identifiers is found in the "CMS Inner Content
    Types" IANA subregistry within the "Media Type Sub-Parameter
-   Registries".  If the existing content is MIME encoded, the mimeData
-   content type SHOULD be used.  Updated protocols that do not deprecate
-   the use of id-data SHOULD provide a rationale for not doing so.  Note
-   that accepting the content type id-data during verification is
-   sufficient for a vulnerability to surface.  Hence the measures
-   described in Section 4.2 must be adhered to.
+   Registries" registry group.  If the existing content is MIME encoded,
+   the mimeData content type SHOULD be used.  Updated protocols that do
+   not deprecate the use of id-data SHOULD provide a rationale for not
+   doing so.  Note that accepting the content type id-data during
+   verification is sufficient for a vulnerability to surface.  Hence the
+   measures described in Section 4.2 must be adhered to.
 
    When a protocol uses the id-data EncapsulatedContentInfo content type
    within SignedData, it SHOULD specify that the signedAttrs field is
@@ -400,8 +400,10 @@ Table of Contents
 
 8.  IANA Considerations
 
-   In the "SMI Security for S/MIME Module Identifier" registry, create a
-   new entry to point to this document.
+   In the "SMI Security for S/MIME Module Identifier"
+   (1.2.840.113549.1.9.16.0) registry within the "Structure of
+   Management Information (SMI) Numbers (MIB Module Registrations)"
+   registry group, create a new entry to point to this document.
 
           +=========+=======================+===================+
           | Decimal | Description           | Reference         |
@@ -411,8 +413,11 @@ Table of Contents
 
                                   Table 1
 
-   In the "SMI Security for S/MIME CMS Content Type" registry, add a new
-   entry for id-ct-mimeData that points to this document.
+   In the "SMI Security for S/MIME CMS Content Type"
+   (1.2.840.113549.1.9.16.1) registry within the "Structure of
+   Management Information (SMI) Numbers (MIB Module Registrations)"
+   registry group, add a new entry for id-ct-mimeData that points to
+   this document.
 
              +=========+================+===================+
              | Decimal | Description    | Reference         |
@@ -422,7 +427,8 @@ Table of Contents
 
                                  Table 2
 
-   In the table "CMS Inner Content Types" add a new entry:
+   In the "CMS Inner Content Types" registry within "Media Type Sub-
+   Parameter Registries" registry group, add a new entry:
 
       +==========+==============================+===================+
       | Name     | Object Identifier            | Reference         |
