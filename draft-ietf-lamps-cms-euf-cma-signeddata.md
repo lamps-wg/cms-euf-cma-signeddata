@@ -128,7 +128,7 @@ New uses of the CMS SignedData MUST NOT use the id-data EncapsulatedContentInfo 
 
 ## Existing Uses of id-data
 
-When a protocol which uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it SHOULD deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries" registry group. If the existing content is MIME encoded, the mimeData content type SHOULD be used. Updated protocols that do not deprecate the use of id-data SHOULD provide a rationale for not doing so. Note that accepting the content type id-data during verification is sufficient for a vulnerability to surface. Hence the measures described in {{recipient-verification}} must be adhered to.
+When a protocol which uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it SHOULD deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries" registry group. If the existing content is MIME encoded, the mimeData content type SHOULD be used. Updated protocols that do not deprecate the use of id-data SHOULD provide a rationale for not doing so. Since accepting the content type id-data during verification is sufficient for a vulnerability to surface, they SHOULD also adopt the measuers described in {{recipient-verification}}.
 
 When a protocol uses the id-data EncapsulatedContentInfo content type within SignedData, it SHOULD specify that the signedAttrs field is either always required or always forbidden.  If a protocol makes such a requirement, a recipient MUST check whether the signedAttrs field is present or absent as specified by the protocol, and fail processing if the appropriate condition is not met.
 
@@ -168,7 +168,8 @@ The vulnerability is not present in systems where the use of signedAttrs is mand
 Any protocol that uses an EncapsulatedContentInfo content type other than id-data is required to use signed attributes.
 However, this security relies on a correct implementation of the verification routine that ensures the correct content type and presence of signedAttrs.
 
-When the message is signed and then encrypted, though in the general case this will make it difficult for the attacker to learn the signature, the vulnerability might still be present if mitigations are not applied:
+When the message is signed and then encrypted, it will be difficult for the attacker to learn the signature.
+However, the vulnerability might still be present if mitigations are not applied.  For example:
 
 - Signing and encryption might not be done on the same endpoints, in which case an attacker between the endpoints might be able to learn the signature for which it could remove or add the signedAttrs.
 - IND-CPA encryption does not give theoretical guarantees against an active attacker and thus does not guarantee that an attacker cannot rearrange the structure.
