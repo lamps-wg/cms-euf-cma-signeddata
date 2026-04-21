@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2026-04-19T02:30:38.099477+00:00",
+  "timestamp": "2026-04-21T02:26:58.796838+00:00",
   "repo": "lamps-wg/cms-euf-cma-signeddata",
   "labels": [
     {
@@ -126,9 +126,17 @@
       "labels": [],
       "body": "https://mailarchive.ietf.org/arch/msg/spasm/gB9FYEE5K52rkIvMwfo2xkLWppo/\n\n> As S/MIME might be the widest-deployed user of CMS out in the wild \nwouldn't it be possible to mention the potential impact and \nrecommendations for S/MIME, if any? Given that S/MIME already has a \nsection, maybe it could be more detailed in that aspect?\n",
       "createdAt": "2026-04-17T15:15:49Z",
-      "updatedAt": "2026-04-17T15:15:49Z",
+      "updatedAt": "2026-04-20T06:10:54Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "falko-strenzke",
+          "authorAssociation": "COLLABORATOR",
+          "body": "This is reasonable idea in my view, but for me the question to which extend the problem affects S/MIME  is a bit difficult to answer.\nFirst of all, on the cryptographic level, S/MIME is affected by both variants of the attack, since S/MIME 4.0 [RFC8551] states:\n>  Sending agents MUST use the id-data content type identifier to identify the \"inner\" MIME message content.\n\n Let's look at both attack variants:\n\n## Add-SA attack\nIf we restrict ourselves to the email use case (whereas the S/MIME standard explicitly says that it isn't restricted to email), we can clearly rule out the Add-SA variant, since it requires that the legitimate signer signs an attacker chosen message.\nHowever, even outside the email settings, it seems hardly feasible that an attacker can get messages of his choice signed. Furthermore, S/MIME is about MIME encoded messages, which pretty clearly makes the attacker chosen message, that has to be of the form of the DER encoded value of the SA, an invalid messsage.\n\n## Remove-SA attack\nThis variant allows the attacker to transform arbitrary signed messages into the form of DER-encoded SA. Such a message will not comply with a MIME encoding. But does that reliably rule out that a forged messages will be displayed? In the case of email, mere text messages are typically also rendered. However, the forged message will contain only attributes that the signer placed in the SA, the content of which is most likely not under the influence of the attacker. Furthermore, the message will definitely contain non-ASCII (and most likely also non-Unicode) characters.",
+          "createdAt": "2026-04-20T06:10:54Z",
+          "updatedAt": "2026-04-20T06:10:54Z"
+        }
+      ]
     }
   ],
   "pulls": [
