@@ -11,7 +11,7 @@
        The Cryptographic Message Syntax (CMS) has different signature verification behaviour based on whether signed attributes are present or not.
 This results in a potential existential forgery vulnerability in CMS and protocols which use CMS.
 This document describes the vulnerability and lists mitigations and best practices to avoid it.
-This document updates   by prohibiting the use of the id-data content type for new uses of the CMS SignedData type. 
+This document updates RFC 5652 by prohibiting the use of the id-data content type for new uses of the CMS SignedData type. 
     " name="description">
 <meta content="xml2rfc 3.34.0" name="generator">
 <meta content="Cryptographic Message Syntax" name="keyword">
@@ -1053,7 +1053,7 @@ svg {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Van Geest &amp; Strenzke</td>
-<td class="center">Expires 14 March 2027</td>
+<td class="center">Expires 18 March 2027</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -1069,12 +1069,12 @@ svg {
 <a href="https://www.rfc-editor.org/rfc/rfc[5652]" class="eref">[5652]</a> (if approved)</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2026-09-10" class="published">10 September 2026</time>
+<time datetime="2026-09-14" class="published">14 September 2026</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Best Current Practice</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2027-03-14">14 March 2027</time></dd>
+<dd class="expires"><time datetime="2027-03-18">18 March 2027</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -1094,7 +1094,7 @@ svg {
 <p id="section-abstract-1">The Cryptographic Message Syntax (CMS) has different signature verification behaviour based on whether signed attributes are present or not.
 This results in a potential existential forgery vulnerability in CMS and protocols which use CMS.
 This document describes the vulnerability and lists mitigations and best practices to avoid it.
-This document updates <span>[<a href="#RFC5652" class="cite xref">RFC5652</a>]</span> by prohibiting the use of the id-data content type for new uses of the CMS SignedData type.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
+This document updates RFC 5652 by prohibiting the use of the id-data content type for new uses of the CMS SignedData type.<a href="#section-abstract-1" class="pilcrow">¶</a></p>
 </section>
 <section class="note rfcEditorRemove" id="section-note.1">
       <h2 id="name-about-this-document">
@@ -1131,7 +1131,7 @@ This document updates <span>[<a href="#RFC5652" class="cite xref">RFC5652</a>]</
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 14 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 18 March 2027.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -1173,13 +1173,16 @@ This document updates <span>[<a href="#RFC5652" class="cite xref">RFC5652</a>]</
             <p id="section-toc.1-1.4.1"><a href="#section-4" class="auto internal xref">4</a>.  <a href="#name-best-practices" class="internal xref">Best Practices</a></p>
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-new-uses-of-the-cms-signedd" class="internal xref">New Uses of the CMS SignedData</a></p>
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="auto internal xref">4.1</a>.  <a href="#name-new-uses-of-the-cms-signedd" class="internal xref">New Uses of the CMS SignedData type</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.2">
                 <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="auto internal xref">4.2</a>.  <a href="#name-existing-uses-of-id-data-in" class="internal xref">Existing Uses of id-data in CMS SignedData</a></p>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-recipient-verification" class="internal xref">Recipient Verification</a></p>
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="auto internal xref">4.3</a>.  <a href="#name-key-separation" class="internal xref">Key Separation</a></p>
+</li>
+              <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="auto internal xref">4.4</a>.  <a href="#name-recipient-verification" class="internal xref">Recipient Verification</a></p>
 </li>
             </ul>
 </li>
@@ -1199,6 +1202,14 @@ This document updates <span>[<a href="#RFC5652" class="cite xref">RFC5652</a>]</
 <ul class="compact toc ulBare ulEmpty">
 <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1">
                 <p id="section-toc.1-1.6.2.1.1"><a href="#section-6.1" class="auto internal xref">6.1</a>.  <a href="#name-on-the-applicability-of-the" class="internal xref">On the Applicability of the Vulnerability</a></p>
+<ul class="compact toc ulBare ulEmpty">
+<li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1.2.1">
+                    <p id="section-toc.1-1.6.2.1.2.1.1"><a href="#section-6.1.1" class="auto internal xref">6.1.1</a>.  <a href="#name-general-considerations-of-a" class="internal xref">General Considerations of Applicability</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1.2.2">
+                    <p id="section-toc.1-1.6.2.1.2.2.1"><a href="#section-6.1.2" class="auto internal xref">6.1.2</a>.  <a href="#name-cross-protocol-and-cross-pr" class="internal xref">Cross-Protocol and Cross-Protocol-Version Attacks</a></p>
+</li>
+                </ul>
 </li>
               <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.2">
                 <p id="section-toc.1-1.6.2.2.1"><a href="#section-6.2" class="auto internal xref">6.2</a>.  <a href="#name-degradation-of-security-gua" class="internal xref">Degradation of Security Guarantees Through the Use of Signed Attributes</a></p>
@@ -1300,7 +1311,7 @@ The signature created by the signer is valid for this arbitrary attacker-chosen 
           <p id="section-1-8.1.1">signedAttrs is a collection of attributes that are signed.  The field is optional, but it <span class="bcp14">MUST</span> be present if the content type of the EncapsulatedContentInfo value being signed is not id-data.<a href="#section-1-8.1.1" class="pilcrow">¶</a></p>
 </li>
       </ul>
-<p id="section-1-9">Thus, if a verifier accepts a content type of id-data in the EncapsulatedContentInfo type when used in SignedData, then a SignerInfo within the SignedData may or may not contain a signedAttrs field and will be vulnerable to this attack.  On the other hand, if the verifier doesn't accept a content type of id-data, the sender always adds the signedAttrs field, and the recipient verifies that signedAttrs is present, the attack will not succeed.<a href="#section-1-9" class="pilcrow">¶</a></p>
+<p id="section-1-9">Thus, if a verifier accepts a content type of id-data in the EncapsulatedContentInfo type when used in SignedData, then a SignerInfo within the SignedData may or may not contain a signedAttrs field and the verifier is vulnerable to this attack.  On the other hand, if the verifier doesn't accept a content type of id-data, the sender always adds the signedAttrs field, and the recipient verifies that signedAttrs is present, the attack will not succeed.<a href="#section-1-9" class="pilcrow">¶</a></p>
 <p id="section-1-10">The limited flexibility of either the signed or the forged message in either attack variant may mean the attacks are only narrowly applicable. Nevertheless, due to the wide deployment of the affected protocols and the use of CMS in many proprietary systems, the attacks cannot be entirely disregarded.<a href="#section-1-10" class="pilcrow">¶</a></p>
 <p id="section-1-11">As a mitigation, this document defines the new mimeData content type to be used in new uses of the CMS SignedData type when the encapsulated content is MIME encoded and thus avoid the use of the id-data content type.
 This document further describes best practices and mitigations that can also be applied to those protocols or systems that continue to use the content type id-data.<a href="#section-1-11" class="pilcrow">¶</a></p>
@@ -1334,7 +1345,11 @@ An existing use is one that predates this document's publication; see <a href="#
       TBD2 }
 </pre><a href="#section-3-2" class="pilcrow">¶</a>
 </div>
-<p id="section-3-3">The mimeData content type is intended as a replacement for the id-data content type in new uses of the CMS SignedData type where the content is MIME encoded.<a href="#section-3-3" class="pilcrow">¶</a></p>
+<p id="section-3-3">The mimeData content type is intended as a replacement for the data content type (id-data object identifier) in new uses of the CMS SignedData type where the content is MIME encoded.
+ Like the data content type, the mimeData content type is encoded as an octet
+ string. Unlike the data content type, the octet string <span class="bcp14">MUST</span> contain a MIME
+ entity as defined in <span>[<a href="#RFC2045" class="cite xref">RFC2045</a>]</span>, i.e., MIME header fields followed by the
+ body. The interpretation of the MIME entity is governed by its MIME headers.<a href="#section-3-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="best-practices">
@@ -1346,10 +1361,11 @@ An existing use is one that predates this document's publication; see <a href="#
 <div id="sec-new">
 <section id="section-4.1">
         <h3 id="name-new-uses-of-the-cms-signedd">
-<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-new-uses-of-the-cms-signedd" class="section-name selfRef">New Uses of the CMS SignedData</a>
+<a href="#section-4.1" class="section-number selfRef">4.1. </a><a href="#name-new-uses-of-the-cms-signedd" class="section-name selfRef">New Uses of the CMS SignedData type</a>
         </h3>
-<p id="section-4.1-1">New uses of the CMS SignedData <span class="bcp14">MUST NOT</span> use the id-data EncapsulatedContentInfo content type. If the new content is MIME encoded, the mimeData content type <span class="bcp14">SHOULD</span> be used unless the new use has reason to bind the signature to a more specific, purpose-built content type identifier (for example to avoid content-type confusion with unrelated applications using mimeData).<a href="#section-4.1-1" class="pilcrow">¶</a></p>
+<p id="section-4.1-1">New uses of the CMS SignedData type <span class="bcp14">MUST NOT</span> use the id-data EncapsulatedContentInfo content type. If the new content is MIME encoded, the mimeData content type <span class="bcp14">SHOULD</span> be used unless the new use has reason to bind the signature to a more specific, purpose-built content type identifier (for example to avoid content-type confusion with unrelated applications using mimeData).<a href="#section-4.1-1" class="pilcrow">¶</a></p>
 <p id="section-4.1-2">If a new content type is defined, it might be appropriate to register it in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries" registry group.<a href="#section-4.1-2" class="pilcrow">¶</a></p>
+<p id="section-4.1-3">See <a href="#sec-key-separation" class="auto internal xref">Section 4.3</a> for a related consideration regarding the key pair used to sign under the new protocol.<a href="#section-4.1-3" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="sec-existing">
@@ -1358,27 +1374,39 @@ An existing use is one that predates this document's publication; see <a href="#
 <a href="#section-4.2" class="section-number selfRef">4.2. </a><a href="#name-existing-uses-of-id-data-in" class="section-name selfRef">Existing Uses of id-data in CMS SignedData</a>
         </h3>
 <p id="section-4.2-1">When a protocol which uses the id-data EncapsulatedContentInfo content type within SignedData is updated, it <span class="bcp14">SHOULD</span> deprecate the use of id-data and use a different (new or existing) identifier. A partial list of such identifiers is found in the "CMS Inner Content Types" IANA subregistry within the "Media Type Sub-Parameter Registries" registry group. If the existing content is MIME encoded, the mimeData content type <span class="bcp14">SHOULD</span> be used, though there may be reasons to use other identifiers as mentioned in <a href="#sec-new" class="auto internal xref">Section 4.1</a>. Updated protocols that do not deprecate the use of id-data should provide a rationale for not doing so, so that reviewers can assess whether the trade-off against the risk described in <a href="#intro" class="auto internal xref">Section 1</a> was adequately considered.
-For example, if new backwards-compatible extensions are added to a protocol it might not be appropriate to move to a new identifier at that time because doing so will result in a backwards-compatibility breaking change and the extensions will be unlikely to be deployed.  Other the other hand, if a protocol has a major version update or otherwise backwards-compatibility breaking change it would be appropriate to deprecate id-data in favour of a different identifier at the same time.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
+For example, if new backwards-compatible extensions are added to a protocol it might not be appropriate to move to a new identifier at that time because doing so will result in a backwards-compatibility breaking change and the extensions will be unlikely to be deployed.  On the other hand, if a protocol has a major version update or otherwise backwards-compatibility breaking change it would be appropriate to deprecate id-data in favour of a different identifier at the same time.<a href="#section-4.2-1" class="pilcrow">¶</a></p>
 <p id="section-4.2-2">When an updated protocol specification uses the id-data EncapsulatedContentInfo content type within SignedData, it <span class="bcp14">SHOULD</span> specify that the signedAttrs field is either always required or always forbidden.  If a protocol makes such a requirement, a recipient implementing the specification <span class="bcp14">MUST</span> check whether the signedAttrs field is present or absent as specified by the protocol, and fail processing if the appropriate condition is not met.<a href="#section-4.2-2" class="pilcrow">¶</a></p>
 <aside id="section-4.2-3">
           <p id="section-4.2-3.1">NOTE: This section uses <span class="bcp14">SHOULD</span> rather than <span class="bcp14">MUST</span> because existing deployments may already include sender applications that do not use the signedAttrs field as expected with id-data.
 Requiring <span class="bcp14">MUST</span> here would risk breaking interoperability with such senders without a migration path, so an updated specification might instead choose not to restrict the presence of signedAttrs.
 <a href="#mitigations" class="auto internal xref">Section 5</a> describes measures available to a recipient when this section's recommendations cannot be applied.<a href="#section-4.2-3.1" class="pilcrow">¶</a></p>
 </aside>
+<p id="section-4.2-4">See <a href="#sec-key-separation" class="auto internal xref">Section 4.3</a> for a related consideration regarding the key pair used across old and new protocol versions.<a href="#section-4.2-4" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="sec-key-separation">
+<section id="section-4.3">
+        <h3 id="name-key-separation">
+<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-key-separation" class="section-name selfRef">Key Separation</a>
+        </h3>
+<p id="section-4.3-1">Mandating signedAttrs within a protocol, whether through a new use of SignedData (<a href="#sec-new" class="auto internal xref">Section 4.1</a>) or updating an existing use (<a href="#sec-existing" class="auto internal xref">Section 4.2</a>), does not by itself prevent the attack described in <a href="#intro" class="auto internal xref">Section 1</a> if the signing key is also used in some other protocol or content type where signedAttrs is not mandated.
+Specifications <span class="bcp14">MUST</span> draw implementers' attention to this risk.
+This can be addressed by requiring a distinct key pair for this protocol's use of SignedData, separate from any other key pair used where signedAttrs is not mandated (whether that is an older version of this same protocol, or an unrelated protocol or content type).
+This can also be addressed by requiring that the mitigation from <a href="#sender-detection" class="auto internal xref">Section 5.2</a> be applied uniformly across every signing operation performed with the key, not only to this protocol's messages, and even in older versions of the protocol.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="recipient-verification">
-<section id="section-4.3">
+<section id="section-4.4">
         <h3 id="name-recipient-verification">
-<a href="#section-4.3" class="section-number selfRef">4.3. </a><a href="#name-recipient-verification" class="section-name selfRef">Recipient Verification</a>
+<a href="#section-4.4" class="section-number selfRef">4.4. </a><a href="#name-recipient-verification" class="section-name selfRef">Recipient Verification</a>
         </h3>
-<p id="section-4.3-1">This section applies to all uses of the CMS SignedData type, whether a new use of SignedData, an existing use of id-data in SignedData, or the existing use of a different content type within SignedData.<a href="#section-4.3-1" class="pilcrow">¶</a></p>
-<p id="section-4.3-2">The entity verifying a CMS SignedData for a specific protocol <span class="bcp14">SHOULD</span> (<span class="bcp14">MUST</span> for new uses of SignedData) verify that the EncapsulatedContentInfo content type matches the value that the protocol expects, and <span class="bcp14">SHOULD</span> (<span class="bcp14">MUST</span> for new uses of SignedData) fail processing if it does not. A general-purpose CMS implementation that lacks protocol-specific enforcement of the above defined checks <span class="bcp14">MUST</span> expose the received content type to the application layer, so that the checks can be performed at by the application.<a href="#section-4.3-2" class="pilcrow">¶</a></p>
-<p id="section-4.3-3">As specified in <span><a href="https://rfc-editor.org/rfc/rfc5652#section-5.3" class="relref">Section 5.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span>, a SignerInfo signedAttrs field <span class="bcp14">MUST</span> be present if the content type of the EncapsulatedContentInfo value being signed is not id-data.
-To avoid the attack described in <a href="#intro" class="auto internal xref">Section 1</a>, a recipient <span class="bcp14">SHOULD</span> (<span class="bcp14">MUST</span> for new uses of SignedData) verify, for each SignerInfo, that the signedAttrs field is present whenever the EncapsulatedContentInfo content type is not id-data, and <span class="bcp14">SHOULD</span> (<span class="bcp14">MUST</span> for new uses of SignedData) fail processing if it is not. Unlike the content type check above, this verification requires no protocol-specific context.<a href="#section-4.3-3" class="pilcrow">¶</a></p>
-<aside id="section-4.3-4">
-          <p id="section-4.3-4.1">NOTE: The rationale in the note under <a href="#sec-existing" class="auto internal xref">Section 4.2</a> applies here as well, and equally to existing uses of id-data and of other content types: making these checks <span class="bcp14">MUST</span> for already-deployed protocols risks breaking interoperability with senders that predate this document.
-<a href="#mitigations" class="auto internal xref">Section 5</a> describes measures available to a recipient when this section's recommendations cannot be applied.<a href="#section-4.3-4.1" class="pilcrow">¶</a></p>
+<p id="section-4.4-1">This section applies to all uses of the CMS SignedData type, whether a new use of SignedData, an existing use of id-data in SignedData, or the existing use of a different content type within SignedData.<a href="#section-4.4-1" class="pilcrow">¶</a></p>
+<p id="section-4.4-2">The entity verifying a CMS SignedData for a specific protocol <span class="bcp14">SHOULD</span> (<span class="bcp14">MUST</span> for new uses of SignedData) verify that the EncapsulatedContentInfo content type matches the value that the protocol expects, and <span class="bcp14">SHOULD</span> (<span class="bcp14">MUST</span> for new uses of SignedData) fail processing if it does not. A general-purpose CMS implementation that lacks protocol-specific enforcement of the above defined checks <span class="bcp14">MUST</span> expose the received content type to the application layer, so that the checks can be performed by the application.<a href="#section-4.4-2" class="pilcrow">¶</a></p>
+<p id="section-4.4-3">As specified in <span><a href="https://rfc-editor.org/rfc/rfc5652#section-5.3" class="relref">Section 5.3</a> of [<a href="#RFC5652" class="cite xref">RFC5652</a>]</span>, a SignerInfo signedAttrs field <span class="bcp14">MUST</span> be present if the content type of the EncapsulatedContentInfo value being signed is not id-data.
+To avoid the attack described in <a href="#intro" class="auto internal xref">Section 1</a>, a recipient <span class="bcp14">SHOULD</span> (<span class="bcp14">MUST</span> for new uses of SignedData) verify, for each SignerInfo, that the signedAttrs field is present whenever the EncapsulatedContentInfo content type is not id-data, and <span class="bcp14">SHOULD</span> (<span class="bcp14">MUST</span> for new uses of SignedData) fail processing if it is not. Unlike the content type check above, this verification requires no protocol-specific context.<a href="#section-4.4-3" class="pilcrow">¶</a></p>
+<aside id="section-4.4-4">
+          <p id="section-4.4-4.1">NOTE: The rationale in the note under <a href="#sec-existing" class="auto internal xref">Section 4.2</a> applies here as well, and equally to existing uses of id-data and of other content types: making these checks <span class="bcp14">MUST</span> for already-deployed protocols risks breaking interoperability with senders that predate this document.
+<a href="#mitigations" class="auto internal xref">Section 5</a> describes measures available to a recipient when this section's recommendations cannot be applied.<a href="#section-4.4-4.1" class="pilcrow">¶</a></p>
 </aside>
 </section>
 </div>
@@ -1407,8 +1435,8 @@ Because a valid DER-encoded SignedAttributes structure necessarily includes the 
         <h3 id="name-sender-detection">
 <a href="#section-5.2" class="section-number selfRef">5.2. </a><a href="#name-sender-detection" class="section-name selfRef">Sender Detection</a>
         </h3>
-<p id="section-5.2-1">This mitigation is performed by a sender who signs data received from a 3rd party (potentially an attacker).<a href="#section-5.2-1" class="pilcrow">¶</a></p>
-<p id="section-5.2-2">If the sender is signing 3rd party content and will not be setting the signedAttrs field, check that the content is not a DER-encoded SignedAttributes structure, and fail if it is.
+<p id="section-5.2-1">This mitigation is performed by a sender who signs data received from a third party (potentially an attacker).<a href="#section-5.2-1" class="pilcrow">¶</a></p>
+<p id="section-5.2-2">If the sender is signing third party content and will not be setting the signedAttrs field, check that the content is not a DER-encoded SignedAttributes structure, and fail if it is.
 Note that also in this case, a malicious party could intentionally present messages that trigger this countermeasure and thereby trigger hard-to-trace errors during the signing process.<a href="#section-5.2-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1419,72 +1447,95 @@ Note that also in this case, a malicious party could intentionally present messa
       <h2 id="name-security-considerations">
 <a href="#section-6" class="section-number selfRef">6. </a><a href="#name-security-considerations" class="section-name selfRef">Security Considerations</a>
       </h2>
-<div id="on-the-applicability-of-the-vulnerability">
+<div id="sec-applicability">
 <section id="section-6.1">
         <h3 id="name-on-the-applicability-of-the">
 <a href="#section-6.1" class="section-number selfRef">6.1. </a><a href="#name-on-the-applicability-of-the" class="section-name selfRef">On the Applicability of the Vulnerability</a>
         </h3>
-<p id="section-6.1-1">The vulnerability is not present in systems where the use of signedAttrs is mandatory, as long as recipients enforce the use of signedAttrs. Some examples where the use of signedAttrs is mandatory are SCEP <span><a href="https://rfc-editor.org/rfc/rfc8894#section-3.2.1" class="relref">Section 3.2.1</a> of [<a href="#RFC8894" class="cite xref">RFC8894</a>]</span>, Certificate Transparency precertificates <span><a href="https://rfc-editor.org/rfc/rfc9162#section-3.2" class="relref">Section 3.2</a> of [<a href="#RFC9162" class="cite xref">RFC9162</a>]</span>, firmware update <span><a href="https://rfc-editor.org/rfc/rfc4108#section-2.1.2.1" class="relref">Section 2.1.2.1</a> of [<a href="#RFC4108" class="cite xref">RFC4108</a>]</span>, and the German Smart Metering CMS data format <span>[<a href="#BSI-TR-03109-1" class="cite xref">BSI-TR-03109-1</a>]</span>.
+<div id="sec-general-applicability">
+<section id="section-6.1.1">
+          <h4 id="name-general-considerations-of-a">
+<a href="#section-6.1.1" class="section-number selfRef">6.1.1. </a><a href="#name-general-considerations-of-a" class="section-name selfRef">General Considerations of Applicability</a>
+          </h4>
+<p id="section-6.1.1-1">The vulnerability is not present in systems where the use of signedAttrs is mandatory, as long as recipients enforce the use of signedAttrs. Some examples where the use of signedAttrs is mandatory are SCEP <span><a href="https://rfc-editor.org/rfc/rfc8894#section-3.2.1" class="relref">Section 3.2.1</a> of [<a href="#RFC8894" class="cite xref">RFC8894</a>]</span>, Certificate Transparency precertificates <span><a href="https://rfc-editor.org/rfc/rfc9162#section-3.2" class="relref">Section 3.2</a> of [<a href="#RFC9162" class="cite xref">RFC9162</a>]</span>, firmware update <span><a href="https://rfc-editor.org/rfc/rfc4108#section-2.1.2.1" class="relref">Section 2.1.2.1</a> of [<a href="#RFC4108" class="cite xref">RFC4108</a>]</span>, and the German Smart Metering CMS data format <span>[<a href="#BSI-TR-03109-1" class="cite xref">BSI-TR-03109-1</a>]</span>.
 Any protocol that uses an EncapsulatedContentInfo content type other than id-data is required to use signed attributes.
-However, this security relies on a correct implementation of the verification routine that ensures the correct content type and presence of signedAttrs.<a href="#section-6.1-1" class="pilcrow">¶</a></p>
-<p id="section-6.1-2">When the message is signed and then encrypted, it will be difficult for the attacker to learn the signature.
-However, the vulnerability might still be present if mitigations are not applied.  For example:<a href="#section-6.1-2" class="pilcrow">¶</a></p>
+However, this security relies on a correct implementation of the verification routine that ensures the correct content type and presence of signedAttrs.<a href="#section-6.1.1-1" class="pilcrow">¶</a></p>
+<p id="section-6.1.1-2">When the message is signed and then encrypted, it will be difficult for the attacker to learn the signature.
+However, the vulnerability might still be present if mitigations are not applied.  For example:<a href="#section-6.1.1-2" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-3.1">
-            <p id="section-6.1-3.1.1">Signing and encryption might not be done on the same endpoints, in which case an attacker between the endpoints might be able to learn the signature for which it could remove or add the signedAttrs.<a href="#section-6.1-3.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.1.1-3.1">
+              <p id="section-6.1.1-3.1.1">Signing and encryption might not be done on the same endpoints, in which case an attacker between the endpoints might be able to learn the signature for which it could remove or add the signedAttrs.<a href="#section-6.1.1-3.1.1" class="pilcrow">¶</a></p>
 </li>
-          <li class="normal" id="section-6.1-3.2">
-            <p id="section-6.1-3.2.1">IND-CPA (indistinguishability under chosen-plaintext attack) encryption does not give theoretical guarantees against an active attacker and thus does not guarantee that an attacker cannot rearrange the structure.<a href="#section-6.1-3.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-6.1.1-3.2">
+              <p id="section-6.1.1-3.2.1">IND-CPA (indistinguishability under chosen-plaintext attack) encryption does not give theoretical guarantees against an active attacker and thus does not guarantee that an attacker cannot rearrange the structure.<a href="#section-6.1.1-3.2.1" class="pilcrow">¶</a></p>
 </li>
-        </ul>
-<p id="section-6.1-4">Conceivably vulnerable systems:<a href="#section-6.1-4" class="pilcrow">¶</a></p>
+          </ul>
+<p id="section-6.1.1-4">Conceivably vulnerable systems:<a href="#section-6.1.1-4" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-5.1">
-            <p id="section-6.1-5.1.1">Unencrypted firmware update denial of service<a href="#section-6.1-5.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.1.1-5.1">
+              <p id="section-6.1.1-5.1.1">Unencrypted firmware update denial of service<a href="#section-6.1.1-5.1.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-5.1.2.1">
-                <p id="section-6.1-5.1.2.1.1">Secure firmware updates often use signatures without encryption.
+<li class="normal" id="section-6.1.1-5.1.2.1">
+                  <p id="section-6.1.1-5.1.2.1.1">Secure firmware updates often use signatures without encryption.
  If the forged message can bring a device, due to lack of robustness in the parser implementation, into an error state, this may lead to a denial of service vulnerability.
- The possibility of creating a targeted exploit can be excluded with great certainty in this case due to the lack of control the attacker has over the forged message.<a href="#section-6.1-5.1.2.1.1" class="pilcrow">¶</a></p>
+ The possibility of creating a targeted exploit can be excluded with great certainty in this case due to the lack of control the attacker has over the forged message.<a href="#section-6.1.1-5.1.2.1.1" class="pilcrow">¶</a></p>
 </li>
-            </ul>
+              </ul>
 </li>
-          <li class="normal" id="section-6.1-5.2">
-            <p id="section-6.1-5.2.1">Dense message space<a href="#section-6.1-5.2.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-6.1.1-5.2">
+              <p id="section-6.1.1-5.2.1">Dense message space<a href="#section-6.1.1-5.2.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-5.2.2.1">
-                <p id="section-6.1-5.2.2.1.1">If a protocol has a dense message space, i.e. a high probability that the forged message represents a valid command or the beginning of a valid command, then, especially if the parser is permissive with respect to trailing data, there is a risk that the message is accepted as valid.
- This requires a protocol where messages are signed but not encrypted.<a href="#section-6.1-5.2.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.1.1-5.2.2.1">
+                  <p id="section-6.1.1-5.2.2.1.1">If a protocol has a dense message space, i.e. a high probability that the forged message represents a valid command or the beginning of a valid command, then, especially if the parser is permissive with respect to trailing data, there is a risk that the message is accepted as valid.
+ This requires a protocol where messages are signed but not encrypted.<a href="#section-6.1.1-5.2.2.1.1" class="pilcrow">¶</a></p>
 </li>
-            </ul>
+              </ul>
 </li>
-          <li class="normal" id="section-6.1-5.3">
-            <p id="section-6.1-5.3.1">Signing unstructured data<a href="#section-6.1-5.3.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-6.1.1-5.3">
+              <p id="section-6.1.1-5.3.1">Signing unstructured data<a href="#section-6.1.1-5.3.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-5.3.2.1">
-                <p id="section-6.1-5.3.2.1.1">Protocols that sign unencrypted unstructured messages, e.g. tokens, might be affected in that the signature of one token might result in the corresponding forged message being another valid token.<a href="#section-6.1-5.3.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.1.1-5.3.2.1">
+                  <p id="section-6.1.1-5.3.2.1.1">Protocols that sign unencrypted unstructured messages, e.g. tokens, might be affected in that the signature of one token might result in the corresponding forged message being another valid token.<a href="#section-6.1.1-5.3.2.1.1" class="pilcrow">¶</a></p>
 </li>
-            </ul>
+              </ul>
 </li>
-          <li class="normal" id="section-6.1-5.4">
-            <p id="section-6.1-5.4.1">External signatures over unstructured data<a href="#section-6.1-5.4.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-6.1.1-5.4">
+              <p id="section-6.1.1-5.4.1">External signatures over unstructured data<a href="#section-6.1.1-5.4.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-5.4.2.1">
-                <p id="section-6.1-5.4.2.1.1">The probably strongest affected class of systems would be one that uses external signatures, i.e. CMS signatures with absent content (that may be transmitted encrypted separately) over unstructured data, e.g. a token of variable length.
- In that case the attacker could create a signed data object for a known secret.<a href="#section-6.1-5.4.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.1.1-5.4.2.1">
+                  <p id="section-6.1.1-5.4.2.1.1">Probably the most strongly affected class of systems would be one that uses external signatures, i.e. CMS signatures with absent content (that may be transmitted encrypted separately) over unstructured data, e.g. a token of variable length.
+ In that case the attacker could create a signed data object for a known secret message.<a href="#section-6.1.1-5.4.2.1.1" class="pilcrow">¶</a></p>
 </li>
-            </ul>
+              </ul>
 </li>
-          <li class="normal" id="section-6.1-5.5">
-            <p id="section-6.1-5.5.1">Systems with permissive parsers<a href="#section-6.1-5.5.1" class="pilcrow">¶</a></p>
+            <li class="normal" id="section-6.1.1-5.5">
+              <p id="section-6.1.1-5.5.1">Systems with permissive parsers<a href="#section-6.1.1-5.5.1" class="pilcrow">¶</a></p>
 <ul class="normal">
-<li class="normal" id="section-6.1-5.5.2.1">
-                <p id="section-6.1-5.5.2.1.1">In addition to potential issues where the protocol parser is permissive (e.g. with respect to trailing space), if the CMS parser is permissive (e.g. allows non-protocol content types, or allows missing signedAttrs with content types other than id-data) then this could result in accepting invalid messages.<a href="#section-6.1-5.5.2.1.1" class="pilcrow">¶</a></p>
+<li class="normal" id="section-6.1.1-5.5.2.1">
+                  <p id="section-6.1.1-5.5.2.1.1">In addition to potential issues where the protocol parser is permissive (e.g. with respect to trailing space), if the CMS parser is permissive (e.g. allows non-protocol content types, or allows missing signedAttrs with content types other than id-data) then this could result in accepting invalid messages.<a href="#section-6.1.1-5.5.2.1.1" class="pilcrow">¶</a></p>
 </li>
-            </ul>
+              </ul>
 </li>
-        </ul>
-<p id="section-6.1-6">Further note that it is generally not good security behaviour to sign data received from a 3rd party without first verifying that data.  <a href="#sender-detection" class="auto internal xref">Section 5.2</a> describes just one verification step that can be performed, specific to the vulnerability described in <a href="#intro" class="auto internal xref">Section 1</a>.<a href="#section-6.1-6" class="pilcrow">¶</a></p>
+          </ul>
+<p id="section-6.1.1-6">Further note that it is generally not good security behaviour to sign data received from a third party without first verifying that data.  <a href="#sender-detection" class="auto internal xref">Section 5.2</a> describes just one verification step that can be performed, specific to the vulnerability described in <a href="#intro" class="auto internal xref">Section 1</a>.<a href="#section-6.1.1-6" class="pilcrow">¶</a></p>
+</section>
+</div>
+<div id="cross-protocol-and-cross-protocol-version-attacks">
+<section id="section-6.1.2">
+          <h4 id="name-cross-protocol-and-cross-pr">
+<a href="#section-6.1.2" class="section-number selfRef">6.1.2. </a><a href="#name-cross-protocol-and-cross-pr" class="section-name selfRef">Cross-Protocol and Cross-Protocol-Version Attacks</a>
+          </h4>
+<p id="section-6.1.2-1">The following explains how the use of the same signing key in a protocol that adheres to this specification and at the same time in a different protocol or protocol version can still lead to vulnerabilities.<a href="#section-6.1.2-1" class="pilcrow">¶</a></p>
+<p id="section-6.1.2-2">One observation is that the claim made in <a href="#sec-general-applicability" class="auto internal xref">Section 6.1.1</a> that the vulnerability is not present when signedAttrs is mandatory and enforced holds only if the signing key is not also used to sign id-data content without signedAttrs in some other context.
+A signer who can be induced to sign attacker-chosen id-data content without signedAttrs (see the second attack described in <a href="#intro" class="auto internal xref">Section 1</a>) becomes a forgery oracle for any other protocol or content type that relies on the same key pair and mandates the presence of signedAttrs.<a href="#section-6.1.2-2" class="pilcrow">¶</a></p>
+<p id="section-6.1.2-3">This holds even for a protocol designed correctly per <a href="#sec-new" class="auto internal xref">Section 4.1</a> or <a href="#sec-existing" class="auto internal xref">Section 4.2</a>.
+Mandating and enforcing signedAttrs within one protocol gives no protection if the same signing key is used without such enforcement in some unrelated context, e.g. an implementation that reuses an existing signing certificate to sign under a new protocol.
+Vulnerabilities arising in such scenarios would classify as vulnerabilities to cross-protocol attacks.
+The risk also arises when an existing protocol is updated to mandate signedAttrs (<a href="#sec-existing" class="auto internal xref">Section 4.2</a>).
+The same key may remain exposed to both the old and new behaviour, e.g. an implementation must support both during a transition period, or a user signs with the same key pair from multiple independent applications (e.g. separate mobile and desktop clients) that adopt the new behaviour at different times.
+This scenario falls into the category of cross-protocol-version attacks.<a href="#section-6.1.2-3" class="pilcrow">¶</a></p>
+</section>
+</div>
 </section>
 </div>
 <div id="degradation-of-security-guarantees-through-the-use-of-signed-attributes">
@@ -1570,6 +1621,10 @@ However, the vulnerability might still be present if mitigations are not applied
 <a href="#section-8.1" class="section-number selfRef">8.1. </a><a href="#name-normative-references" class="section-name selfRef">Normative References</a>
         </h3>
 <dl class="references">
+<dt id="RFC2045">[RFC2045]</dt>
+        <dd>
+<span class="refAuthor">Freed, N.</span> and <span class="refAuthor">N. Borenstein</span>, <span class="refTitle">"Multipurpose Internet Mail Extensions (MIME) Part One: Format of Internet Message Bodies"</span>, <span class="seriesInfo">RFC 2045</span>, <span class="seriesInfo">DOI 10.17487/RFC2045</span>, <time datetime="1996-11" class="refDate">November 1996</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2045">https://www.rfc-editor.org/rfc/rfc2045</a>&gt;</span>. </dd>
+<dd class="break"></dd>
 <dt id="RFC2119">[RFC2119]</dt>
         <dd>
 <span class="refAuthor">Bradner, S.</span>, <span class="refTitle">"Key words for use in RFCs to Indicate Requirement Levels"</span>, <span class="seriesInfo">BCP 14</span>, <span class="seriesInfo">RFC 2119</span>, <span class="seriesInfo">DOI 10.17487/RFC2119</span>, <time datetime="1997-03" class="refDate">March 1997</time>, <span>&lt;<a href="https://www.rfc-editor.org/rfc/rfc2119">https://www.rfc-editor.org/rfc/rfc2119</a>&gt;</span>. </dd>
@@ -1694,7 +1749,7 @@ However, the vulnerability might still be present if mitigations are not applied
 <pre>
 &lt;CODE STARTS&gt;
 
-MimeData-2026 { iso(1) member-body(2) usa(840)
+MimeData-2026 { iso(1) member-body(2) us(840)
         rsadsi(113549) pkcs(1) pkcs9(9) smime(16) modules(0)
         id-mod-mime-data-2026(TBD1) }
 DEFINITIONS EXPLICIT TAGS ::= BEGIN
@@ -1746,7 +1801,7 @@ The list can be used as a starting point to determine if any of BCPs in this doc
             <td class="text-left" rowspan="1" colspan="1">
               <span>[<a href="#RFC8894" class="cite xref">RFC8894</a>]</span>
 </td>
-            <td class="text-left" rowspan="1" colspan="1">Requires the used of signed attributes</td>
+            <td class="text-left" rowspan="1" colspan="1">Requires the use of signed attributes</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">
@@ -1764,7 +1819,8 @@ The list can be used as a starting point to determine if any of BCPs in this doc
             <td class="text-left" rowspan="1" colspan="1">
               <span>[<a href="#RFC6257" class="cite xref">RFC6257</a>]</span>
 </td>
-            <td class="text-left" rowspan="1" colspan="1">Forbids signed attributes</td>
+            <td class="text-left" rowspan="1" colspan="1">
+              <span class="bcp14">SHOULD NOT</span> include signed attributes</td>
           </tr>
           <tr>
             <td class="text-left" rowspan="1" colspan="1">
@@ -1822,7 +1878,7 @@ The list can be used as a starting point to determine if any of BCPs in this doc
         <h3 id="name-rfc-8894-simple-certificate">
 <a href="#appendix-B.1" class="section-number selfRef">B.1. </a><a href="#name-rfc-8894-simple-certificate" class="section-name selfRef">RFC 8894 Simple Certificate Enrolment Protocol</a>
         </h3>
-<p id="appendix-B.1-1">Figure 6 in <span><a href="https://rfc-editor.org/rfc/rfc8894#section-3" class="relref">Section 3</a> of [<a href="#RFC8894" class="cite xref">RFC8894</a>]</span> specifies id-data as the EncapsulatedContentInfo content type, and shows the use of signedAttrs.  The document itself never refers to signed attributes, but instead to authenticated attributes and an authenticatedAttributes type.  Errata ID 8247 clarifies that it should be "signed attributes" and "signedAttrs".<a href="#appendix-B.1-1" class="pilcrow">¶</a></p>
+<p id="appendix-B.1-1">Figure 6 in <span><a href="https://rfc-editor.org/rfc/rfc8894#section-3" class="relref">Section 3</a> of [<a href="#RFC8894" class="cite xref">RFC8894</a>]</span> specifies id-data as the EncapsulatedContentInfo content type, and shows the use of signedAttrs.  The document itself never refers to signed attributes, but instead to authenticated attributes and an authenticatedAttributes type.  Erratum ID 8247 clarifies that it should be "signed attributes" and "signedAttrs".<a href="#appendix-B.1-1" class="pilcrow">¶</a></p>
 <p id="appendix-B.1-2">Since SCEP requires the use of signedAttrs with the id-data EncapsulatedContentInfo content type, and the recipient must process at least some of the signed attributes, it is not affected by the vulnerability.<a href="#appendix-B.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
@@ -1904,7 +1960,7 @@ unauthenticated.<a href="#appendix-B.4-2.1.1" class="pilcrow">¶</a></p>
 <a href="#appendix-B.7" class="section-number selfRef">B.7. </a><a href="#name-rfc-5126-cms-advanced-elect" class="section-name selfRef">RFC 5126 CMS Advanced Electronic Signatures (CAdES)</a>
         </h3>
 <p id="appendix-B.7-1"><span><a href="https://rfc-editor.org/rfc/rfc5126#section-4.3.1" class="relref">Section 4.3.1</a> of [<a href="#RFC5126" class="cite xref">RFC5126</a>]</span> specifies mandatory signed attributes.<a href="#appendix-B.7-1" class="pilcrow">¶</a></p>
-<p id="appendix-B.7-2">One of the signed attributes is used to determine which certificate is used to verify the signature, so CaDES is not affected by the vulnerability.<a href="#appendix-B.7-2" class="pilcrow">¶</a></p>
+<p id="appendix-B.7-2">One of the signed attributes is used to determine which certificate is used to verify the signature, so CAdES is not affected by the vulnerability.<a href="#appendix-B.7-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="rfc-5024-odette-file-transfer-protocol-2">
@@ -1920,7 +1976,7 @@ unauthenticated.<a href="#appendix-B.4-2.1.1" class="pilcrow">¶</a></p>
         <h3 id="name-rfc-3126-electronic-signatu">
 <a href="#appendix-B.9" class="section-number selfRef">B.9. </a><a href="#name-rfc-3126-electronic-signatu" class="section-name selfRef">RFC 3126 Electronic Signature Formats for long term electronic signatures</a>
         </h3>
-<p id="appendix-B.9-1"><span><a href="https://rfc-editor.org/rfc/rfc3126#section-6.1" class="relref">Section 6.1</a> of [<a href="#RFC3126" class="cite xref">RFC3126</a>]</span> requires the MessageDigest attribute, which is a signed attribute.<a href="#appendix-B.9-1" class="pilcrow">¶</a></p>
+<p id="appendix-B.9-1"><span><a href="https://rfc-editor.org/rfc/rfc3126#section-6.1" class="relref">Section 6.1</a> of [<a href="#RFC3126" class="cite xref">RFC3126</a>]</span> requires the message-digest attribute, which is a signed attribute.<a href="#appendix-B.9-1" class="pilcrow">¶</a></p>
 </section>
 </div>
 </section>
